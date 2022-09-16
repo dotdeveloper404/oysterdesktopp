@@ -1,0 +1,90 @@
+﻿<Window x:Class="OysterVPN.MessageBoxCustom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OysterVPN"
+        mc:Ignorable="d"
+        Title="MessageBoxWindow" Height="200" Width="300" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None" Background="White" 
+         Topmost="True" ShowInTaskbar="False"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="10"
+        TextOptions.TextFormattingMode="Ideal"
+        ResizeMode="NoResize"
+        TextOptions.TextRenderingMode="Auto"        
+        FontFamily="{DynamicResource MaterialDesignFont}" FontWeight="Normal">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="178*"/>
+            <ColumnDefinition Width="295*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card x:Name="cardHeader" Grid.Row="0" Padding="10" Margin="0" materialDesign:ShadowAssist.ShadowDepth="Depth5"   Background="#FF0065C4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Visibility="Visible" Grid.ColumnSpan="3">
+            <StackPanel>
+                <TextBlock x:Name="txtTitle" HorizontalAlignment="Center" VerticalAlignment="Stretch" Style="{DynamicResource MaterialDesignTitleTextBlock}" FontSize="20" >Message Title</TextBlock>
+            </StackPanel>
+        </materialDesign:Card>
+        <StackPanel  HorizontalAlignment="Right" Margin="0,5,5,0"  VerticalAlignment="Top" Grid.Column="2">
+            <Button x:Name="btnClose" Click="btnClose_Click" Width="35" Height="35"  Background="White" Foreground="#FF0065C4" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" BorderBrush="#FF0065C4">
+                <materialDesign:PackIcon Kind="Close" />
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <materialDesign:TransitioningContent>
+                        <materialDesign:TransitioningContent.OpeningEffects >
+                            <materialDesign:TransitionEffect Kind="FadeIn" />
+                            <materialDesign:TransitionEffect Kind="SlideInFromBottom" />
+                        </materialDesign:TransitioningContent.OpeningEffects>
+                        <TextBox x:Name="txtMessage" HorizontalAlignment="Center" IsReadOnly="True" Grid.Row="0" Margin="5" materialDesign:HintAssist.Hint="" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" CaretBrush="#FFDCD9E0" />
+                    </materialDesign:TransitioningContent>
+
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,20,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnOk" Click="btnOk_Click" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" Margin="5" Width="100" Content="OK" ToolTip="Ok"/>
+                    <Button x:Name="btnCancel" Click="btnCancel_Click" Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" Margin="5" Width="100" Content="Cancel" ToolTip="Cancel"/>
+                    <Button x:Name="btnYes" Click="btnYes_Click" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" Margin="5" Width="100" Content="Yes" ToolTip="Yes" Background="#FF0065C4" BorderBrush="#FFE9E6EE"/>
+                    <Button x:Name="btnNo" Click="btnNo_Click" Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" Margin="5" Width="100" Content="No" ToolTip="No" Background="#FFB73A51" BorderBrush="#FFDDDCDE"/>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

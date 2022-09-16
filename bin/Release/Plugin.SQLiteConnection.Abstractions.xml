@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.SQLiteConnection.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.SQLiteConnection.Abstractions.ISQLiteConnection">
+            <summary>
+            Interface for SQLiteConnection
+            </summary>
+        </member>
+    </members>
+</doc>

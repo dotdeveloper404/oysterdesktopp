@@ -1,0 +1,35 @@
+[23:27:01.641 Verbose] - BuildManager - C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(4230,5): error MSB3482: An error occurred while signing: SignTool.exe was not found at path D:\VS-Repo\Oyster\signtool.exe.
+[23:27:01.651 Verbose] - BuildManager - Some of the file paths defined in the csproj under the Live Unit Testing build path are missing. Verify whether these files should be present under the Live Unit Testing build path and if necessary update the csproj definition to look these files up in a different place.
+[23:27:01.652 Verbose] - BuildManager - Item _OutputPathItem 'D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\bin\Debug\' evaluated via:
+_OutputPathItem: '$(OutDir)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:309
+  OutDir: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(OutDir)', '$(OutputPath)'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:230
+    OutDir: 'D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\bin\Debug\' @ D:\VS-Repo\Oyster\OysterVPN.csproj:0
+    OutputPath: '$([MSBuild]::EnsureTrailingSlash('$(OutputPath)'))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:157
+      OutputPath: 'bin\Debug\' @ D:\VS-Repo\Oyster\OysterVPN.csproj:48
+[23:27:01.652 Verbose] - BuildManager - Item AppConfigFileDestination 'D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\bin\Debug\OysterVPN.exe.config' evaluated via:
+AppConfigFileDestination: '$(OutDir)$(TargetFileName).config' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:337
+  OutDir: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(OutDir)', '$(OutputPath)'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:230
+    OutDir: 'D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\bin\Debug\' @ D:\VS-Repo\Oyster\OysterVPN.csproj:0
+    OutputPath: '$([MSBuild]::EnsureTrailingSlash('$(OutputPath)'))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:157
+      OutputPath: 'bin\Debug\' @ D:\VS-Repo\Oyster\OysterVPN.csproj:48
+  TargetFileName: '$(TargetName)$(TargetExt)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:247
+    TargetName: '$(AssemblyName)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:239
+      AssemblyName: 'OysterVPN' @ D:\VS-Repo\Oyster\OysterVPN.csproj:11
+    TargetExt: '.exe' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:216
+[23:27:01.652 Verbose] - BuildManager - Item _DebugSymbolsOutputPath 'D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\bin\Debug\OysterVPN.pdb' evaluated via:
+_DebugSymbolsOutputPath: '@(_DebugSymbolsIntermediatePath->'$(OutDir)%(Filename)%(Extension)')' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:400
+  OutDir: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(OutDir)', '$(OutputPath)'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:230
+    OutDir: 'D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\bin\Debug\' @ D:\VS-Repo\Oyster\OysterVPN.csproj:0
+    OutputPath: '$([MSBuild]::EnsureTrailingSlash('$(OutputPath)'))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:157
+      OutputPath: 'bin\Debug\' @ D:\VS-Repo\Oyster\OysterVPN.csproj:48
+[23:27:01.652 Verbose] - BuildManager - Item _ApplicationManifestFinal 'D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\bin\Debug\OysterVPN.exe.manifest' evaluated via:
+_ApplicationManifestFinal: '$(OutDir)$(_DeploymentTargetApplicationManifestFileName)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:438
+  OutDir: '$([MSBuild]::EnsureTrailingSlash($([MSBuild]::ValueOrDefault('$(OutDir)', '$(OutputPath)'))))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:230
+    OutDir: 'D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\bin\Debug\' @ D:\VS-Repo\Oyster\OysterVPN.csproj:0
+    OutputPath: '$([MSBuild]::EnsureTrailingSlash('$(OutputPath)'))' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:157
+      OutputPath: 'bin\Debug\' @ D:\VS-Repo\Oyster\OysterVPN.csproj:48
+  _DeploymentTargetApplicationManifestFileName: '$(TargetFileName).manifest' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:265
+    TargetFileName: '$(TargetName)$(TargetExt)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:247
+      TargetName: '$(AssemblyName)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:239
+        AssemblyName: 'OysterVPN' @ D:\VS-Repo\Oyster\OysterVPN.csproj:11
+      TargetExt: '.exe' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:216

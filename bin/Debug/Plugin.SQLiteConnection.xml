@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.SQLiteConnection</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.SQLiteConnection.CrossSQLiteConnection">
+            <summary>
+            Cross platform SQLiteConnection implemenations
+            </summary>
+        </member>
+        <member name="P:Plugin.SQLiteConnection.CrossSQLiteConnection.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+    </members>
+</doc>

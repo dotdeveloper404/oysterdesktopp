@@ -1,0 +1,49 @@
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\bin\Debug\NativeMessaging.xml
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\bin\Debug\NativeMessaging.dll
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\bin\Debug\NativeMessaging.pdb
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\obj\Debug\NativeMessaging.csprojAssemblyReference.cache
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\obj\Debug\NativeMessaging.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\obj\Debug\NativeMessaging.csproj.CopyComplete
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\obj\Debug\NativeMessaging.dll
+C:\Users\Administrator\Downloads\NativeMessaging-master (2)\NativeMessaging-master\NativeMessaging\obj\Debug\NativeMessaging.pdb
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Debug\NativeMessaging.xml
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Debug\NativeMessaging.dll
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Debug\NativeMessaging.pdb
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Debug\Newtonsoft.Json.dll
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Debug\Newtonsoft.Json.xml
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Debug\NativeMessaging.csproj.CoreCompileInputs.cache
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Debug\NativeMessaging.csproj.CopyComplete
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Debug\NativeMessaging.dll
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Debug\NativeMessaging.pdb
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Debug\NativeMessaging.csprojAssemblyReference.cache
+D:\VS-Repo\Oyster\NativeMessaging\bin\Debug\NativeMessaging.xml
+D:\VS-Repo\Oyster\NativeMessaging\bin\Debug\NativeMessaging.dll
+D:\VS-Repo\Oyster\NativeMessaging\bin\Debug\NativeMessaging.pdb
+D:\VS-Repo\Oyster\NativeMessaging\bin\Debug\Newtonsoft.Json.dll
+D:\VS-Repo\Oyster\NativeMessaging\bin\Debug\Newtonsoft.Json.xml
+D:\VS-Repo\Oyster\NativeMessaging\obj\Debug\NativeMessaging.csproj.CoreCompileInputs.cache
+D:\VS-Repo\Oyster\NativeMessaging\obj\Debug\NativeMessaging.csproj.CopyComplete
+D:\VS-Repo\Oyster\NativeMessaging\obj\Debug\NativeMessaging.dll
+D:\VS-Repo\Oyster\NativeMessaging\obj\Debug\NativeMessaging.pdb
+D:\VS-Repo\New Design\Oyster\NativeMessaging\bin\Debug\NativeMessaging.xml
+D:\VS-Repo\New Design\Oyster\NativeMessaging\bin\Debug\NativeMessaging.dll
+D:\VS-Repo\New Design\Oyster\NativeMessaging\bin\Debug\NativeMessaging.pdb
+D:\VS-Repo\New Design\Oyster\NativeMessaging\bin\Debug\Newtonsoft.Json.dll
+D:\VS-Repo\New Design\Oyster\NativeMessaging\bin\Debug\Newtonsoft.Json.xml
+D:\VS-Repo\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.csprojAssemblyReference.cache
+D:\VS-Repo\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.csproj.CoreCompileInputs.cache
+D:\VS-Repo\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.csproj.CopyComplete
+D:\VS-Repo\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.dll
+D:\VS-Repo\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.pdb
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Debug\NativeMessaging.xml
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Debug\NativeMessaging.dll
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Debug\NativeMessaging.pdb
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Debug\Newtonsoft.Json.dll
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Debug\Newtonsoft.Json.xml
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.csproj.AssemblyReference.cache
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.csproj.CoreCompileInputs.cache
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.csproj.CopyComplete
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.dll
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Debug\NativeMessaging.pdb

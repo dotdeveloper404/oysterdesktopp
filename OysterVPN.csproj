@@ -1,0 +1,978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\SQLite.3.13.0\build\net45\SQLite.props" Condition="Exists('packages\SQLite.3.13.0\build\net45\SQLite.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{735D20A2-9971-4BAE-BEAA-83D10B4E17DC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OysterVPN</RootNamespace>
+    <AssemblyName>OysterVPN</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\publish\setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>https://oystervpn.com</SupportUrl>
+    <ProductName>OysterVPNApp</ProductName>
+    <PublisherName>OysterVPN</PublisherName>
+    <SuiteName>Oyster</SuiteName>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3853D2659B21CDB55AF7C3379F9F7AF9093D2E17</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>OysterVPN_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>vpngreen.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>oytser.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlertBarWpf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\AlertBarWpf.1.0.4\lib\AlertBarWpf.dll</HintPath>
+    </Reference>
+    <Reference Include="CountryData.Standard, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CountryData.Standard.1.0.1\lib\netstandard2.0\CountryData.Standard.dll</HintPath>
+    </Reference>
+    <Reference Include="DotRas, Version=1.3.5166.33435, Culture=neutral, PublicKeyToken=b378f04384b7892a, processorArchitecture=MSIL">
+      <HintPath>packages\DotRas.for.Win8.1.3.0\lib\net40\DotRas.dll</HintPath>
+    </Reference>
+    <Reference Include="FirewallManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FirewallManager.1.0.2\lib\FirewallManager.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.NATUPNPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FirewallManager.1.0.2\lib\Interop.NATUPNPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.NETCONLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FirewallManager.1.0.2\lib\Interop.NETCONLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.NetFwTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FirewallManager.1.0.2\lib\Interop.NetFwTypeLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesign, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesign.dll.1.0.0\lib\MaterialDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.1.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignColors.2.0.1\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignExtensions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c5ebccebe084d64f, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignExtensions.3.3.0\lib\net45\MaterialDesignExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignThemes.4.0.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite, Version=5.0.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.Sqlite.Core.5.0.10\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Notifications.Wpf, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Notifications.Wpf.0.1.1\lib\net461\Notifications.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.SQLiteConnection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Plugin.SQLiteConnection.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.SQLiteConnection.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.SQLiteConnection.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Plugin.SQLiteConnection.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.SQLiteConnection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Converters.Wpf, Version=1.7.6.0, Culture=neutral, PublicKeyToken=b532964b8548be77, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.Reloaded.1.7.6\lib\net47\SharpVectors.Converters.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Core, Version=1.7.6.0, Culture=neutral, PublicKeyToken=7407205e337c98ef, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.Reloaded.1.7.6\lib\net47\SharpVectors.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Css, Version=1.7.6.0, Culture=neutral, PublicKeyToken=7a46e3f532fdb787, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.Reloaded.1.7.6\lib\net47\SharpVectors.Css.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Dom, Version=1.7.6.0, Culture=neutral, PublicKeyToken=517340b6277b1a7a, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.Reloaded.1.7.6\lib\net47\SharpVectors.Dom.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Model, Version=1.7.6.0, Culture=neutral, PublicKeyToken=2236cfc76b505845, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.Reloaded.1.7.6\lib\net47\SharpVectors.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Gdi, Version=1.7.6.0, Culture=neutral, PublicKeyToken=03902092284347e3, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.Reloaded.1.7.6\lib\net47\SharpVectors.Rendering.Gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Wpf, Version=1.7.6.0, Culture=neutral, PublicKeyToken=d0902381100df30e, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.Reloaded.1.7.6\lib\net47\SharpVectors.Rendering.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Runtime.Wpf, Version=1.7.6.0, Culture=neutral, PublicKeyToken=d16e717f0a981fb9, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.Reloaded.1.7.6\lib\net47\SharpVectors.Runtime.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\sqlite-net-pcl.1.1.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCL.raw, Version=0.8.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCL.raw.0.8.6\lib\net45\SQLitePCL.raw.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.4.976, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.bundle_e_sqlite3.2.0.4\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.0.4.976, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.core.2.0.4\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.nativelibrary, Version=2.0.4.976, Culture=neutral, PublicKeyToken=502ed628492ab262, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.bundle_e_sqlite3.2.0.4\lib\net461\SQLitePCLRaw.nativelibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.0.4.976, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.provider.dynamic_cdecl.2.0.4\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.5.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.Metadata.5.0.0\lib\net461\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.5.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.5.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App\GifImage.cs" />
+    <Compile Include="App\InternetKillSwitch.cs" />
+    <Compile Include="App\MinimizeToTray.cs" />
+    <Compile Include="App\Settings - Copy.cs" />
+    <Compile Include="App\SmartConnectDistance.cs" />
+    <Compile Include="App\SystemMenu.cs" />
+    <Compile Include="App\WebPages.cs" />
+    <Compile Include="ForgotPassword.xaml.cs">
+      <DependentUpon>ForgotPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPasswordForm.xaml.cs">
+      <DependentUpon>ForgotPasswordForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomeWindow.xaml.cs">
+      <DependentUpon>HomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.xaml.cs">
+      <DependentUpon>LoginForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginSplash.xaml.cs">
+      <DependentUpon>LoginSplash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxCustom.xaml.cs">
+      <DependentUpon>MessageBoxCustom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyHost.cs" />
+    <Compile Include="CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomeScreen.xaml.cs">
+      <DependentUpon>HomeScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OysterVPNModel\CurrentLocation.cs" />
+    <Compile Include="SecureDevice.xaml.cs">
+      <DependentUpon>SecureDevice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsScreen.xaml.cs">
+      <DependentUpon>SettingsScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Signup.xaml.cs">
+      <DependentUpon>Signup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SignupForm.xaml.cs">
+      <DependentUpon>SignupForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpeedTest.xaml.cs">
+      <DependentUpon>SpeedTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SplashForm.xaml.cs">
+      <DependentUpon>SplashForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SplitTunnel.xaml.cs">
+      <DependentUpon>SplitTunnel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="testing.xaml.cs">
+      <DependentUpon>testing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VpnLocations.xaml.cs">
+      <DependentUpon>VpnLocations.xaml</DependentUpon>
+    </Compile>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="CircularProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForgotPasswordForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomeScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginSplash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App\Settings.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MessageBoxCustom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecureDevice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Signup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignupForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpeedTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplashForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplitTunnel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="testing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VpnLocations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OysterVpn.cs" />
+    <Compile Include="OysterVPNLibrary\HttpClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OysterVPNLibrary\IHttpClient.cs" />
+    <Compile Include="OysterVPNLibrary\Library\DisconnectWrapper.cs" />
+    <Compile Include="OysterVPNLibrary\Library\OysterVPN\Administrator.cs" />
+    <Compile Include="OysterVPNLibrary\NetworkInterfaceCard.cs" />
+    <Compile Include="OysterVPNLibrary\OVPNService\FVPNService.cs" />
+    <Compile Include="OysterVPNLibrary\OVPNService\FVPNServiceChannel.cs" />
+    <Compile Include="OysterVPNLibrary\OVPNService\FVPNServiceClient.cs" />
+    <Compile Include="OysterVPNLibrary\Responses\checkUpdates.cs" />
+    <Compile Include="OysterVPNLibrary\Responses\IPResponse.cs" />
+    <Compile Include="OysterVPNLibrary\Responses\LoginResponse.cs" />
+    <Compile Include="OysterVPNLibrary\Responses\Response.cs" />
+    <Compile Include="OysterVPNLibrary\Responses\ServerResponse.cs" />
+    <Compile Include="OysterVPNLibrary\Responses\ServersResponse.cs" />
+    <Compile Include="OysterVPNLibrary\Security.cs" />
+    <Compile Include="OysterVPNLibrary\Storage.cs" />
+    <Compile Include="OysterVPNLibrary\UpdateModel.cs" />
+    <Compile Include="OysterVPNLibrary\VersionDependency.cs" />
+    <Compile Include="OysterVPNModel\Country.cs" />
+    <Compile Include="OysterVPNModel\Model.cs" />
+    <Compile Include="OysterVPNModel\Product.cs" />
+    <Compile Include="OysterVPNModel\Server.cs" />
+    <Compile Include="OysterVPNModel\UserInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="assets\fonts\Poppins\Poppins-Black.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-BlackItalic.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-Bold.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-BoldItalic.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-ExtraBold.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-ExtraLight.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-ExtraLightItalic.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-Italic.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-Light.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-LightItalic.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-Medium.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-MediumItalic.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-Regular.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-SemiBold.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-SemiBoldItalic.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-Thin.ttf" />
+    <Resource Include="assets\fonts\Poppins\Poppins-ThinItalic.ttf" />
+    <None Include="OysterVPNAppKey.pfx" />
+    <None Include="OysterVPN_TemporaryKey.pfx" />
+    <None Include="OysterWPF_TemporaryKey.pfx" />
+    <None Include="oytser.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-2.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\search-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\turn-of.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\VPN-hero-image-resized.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="search-magnify.png" />
+    <Resource Include="vpnicon.png" />
+    <Resource Include="secure.png" />
+    <Resource Include="user.png" />
+    <Resource Include="settings.png" />
+    <Resource Include="signout.png" />
+    <Resource Include="vpnicon.ico" />
+    <Resource Include="signupslide1.png" />
+    <Resource Include="thunder.png" />
+    <Resource Include="vpngreen.ico" />
+    <Resource Include="SplashScreen.png" />
+    <Resource Include="star-empty.png" />
+    <Resource Include="VPN-Icon-Green.png" />
+    <Resource Include="VPN-Icon.ico" />
+    <Resource Include="VPN-Icon.png" />
+    <Resource Include="turn-on.png" />
+    <Resource Include="assets\background.png" />
+    <Resource Include="assets\splash_logo.png" />
+    <Resource Include="assets\white_background.png" />
+    <Resource Include="assets\white_background.jpg" />
+    <Resource Include="assets\onboard_sample.png" />
+    <Resource Include="assets\login-logo.png" />
+    <Resource Include="assets\tick.png" />
+    <Resource Include="assets\loader.gif" />
+    <Resource Include="loader.gif" />
+    <Resource Include="assets\logo-dark.png" />
+    <Resource Include="assets\logo-white.png" />
+    <Resource Include="logo-dark.png" />
+    <Resource Include="assets\turn-on.png" />
+    <Resource Include="menu.png" />
+    <Resource Include="assets\Eye-Close.png" />
+    <Resource Include="Eye-Close.png" />
+    <Resource Include="assets\home-blue.png" />
+    <Resource Include="home-blue.png" />
+    <Resource Include="assets\home-blue-map.png" />
+    <Resource Include="home-blue-map.png" />
+    <Resource Include="assets\round-line.png" />
+    <Resource Include="round-line.png" />
+    <Resource Include="button-disconnected.png" />
+    <Resource Include="assets\button-disconnected.png" />
+    <Resource Include="assets\oyster-system-tray.png" />
+    <Resource Include="assets\home-green-map.png" />
+    <Resource Include="assets\home-green.png" />
+    <Resource Include="map.png" />
+    <Resource Include="home-red.png" />
+    <Resource Include="assets\home-red-disconnected.png" />
+    <Resource Include="home-red-disconnected.png" />
+    <Resource Include="assets\map.png" />
+    <Resource Include="home-green.png" />
+    <Resource Include="assets\button-connected-green.png" />
+    <Resource Include="button-connected-green.png" />
+    <Resource Include="assets\button-dissconnect-red.png" />
+    <Resource Include="button-dissconnect-red.png" />
+    <Resource Include="assets\icon-location.png" />
+    <Resource Include="location-icon.png" />
+    <Resource Include="icon-location.png" />
+    <Resource Include="Group 7370.png" />
+    <Resource Include="assets\menu-bar.png" />
+    <Resource Include="menu-bar.png" />
+    <Resource Include="assets\quit.png" />
+    <Resource Include="assets\speed-test.png" />
+    <Resource Include="assets\options.png" />
+    <Resource Include="assets\help.png" />
+    <Resource Include="assets\split.png" />
+    <Resource Include="assets\secure.png" />
+    <Resource Include="assets\switch.png" />
+    <Resource Include="assets\slider_1.png" />
+    <Resource Include="assets\slider_2.png" />
+    <Resource Include="assets\slider_3.png" />
+    <Resource Include="assets\vpnicon.ico" />
+    <Resource Include="assets\VPN-Icon-Green.png" />
+    <Resource Include="assets\star-empty.png" />
+    <Resource Include="assets\star-fill.png" />
+    <Resource Include="assets\round1.png" />
+    <Resource Include="assets\round2.png" />
+    <Resource Include="assets\round3.png" />
+    <Resource Include="assets\round4.png" />
+    <Resource Include="assets\fr.png" />
+    <Resource Include="fr.png" />
+    <Resource Include="assets\Group 7363.png" />
+    <Resource Include="Group 7363.png" />
+    <Resource Include="assets\Group 7367.png" />
+    <Resource Include="Group 7367.png" />
+    <Resource Include="assets\Group 7368.png" />
+    <Resource Include="Group 7368.png" />
+    <Resource Include="assets\Group 7368.jpg" />
+    <Resource Include="Group 7368.jpg" />
+    <Resource Include="assets\Group 7369.png" />
+    <Resource Include="assets\Group 7370.png" />
+    <Resource Include="assets\Group 7371.png" />
+    <Resource Include="assets\Group 7372.png" />
+    <Resource Include="assets\Group 7373.png" />
+    <Resource Include="assets\Group 7374.png" />
+    <Resource Include="Group 7369.png" />
+    <Resource Include="Group 7372.png" />
+    <Resource Include="Group 7373.png" />
+    <Resource Include="Group 7374.png" />
+    <Resource Include="assets\Group 7376.png" />
+    <Resource Include="assets\Group 7377.png" />
+    <Resource Include="assets\like.png" />
+    <Resource Include="assets\clock.png" />
+    <Resource Include="oyster-logo.png" />
+    <Resource Include="assets\oysterwhite.svg" />
+    <Resource Include="assets\oysergreen.svg" />
+    <Resource Include="oysergreen.svg" />
+    <Resource Include="assets\button-connecting.png" />
+    <Resource Include="assets\Group 7366.png" />
+    <Resource Include="assets\home-orange.png" />
+    <Resource Include="Group 7366.png" />
+    <Resource Include="home-orange.png" />
+    <Resource Include="assets\fonts\Poppins\OFL.txt" />
+    <Resource Include="button-connecting.png" />
+    <Resource Include="assets\flags\ad.png" />
+    <Resource Include="assets\flags\ae.png" />
+    <Resource Include="assets\flags\af.png" />
+    <Resource Include="assets\flags\ag.png" />
+    <Resource Include="assets\flags\ai.png" />
+    <Resource Include="assets\flags\al.png" />
+    <Resource Include="assets\flags\am.png" />
+    <Resource Include="assets\flags\ao.png" />
+    <Resource Include="assets\flags\aq.png" />
+    <Resource Include="assets\flags\ar.png" />
+    <Resource Include="assets\flags\as.png" />
+    <Resource Include="assets\flags\at.png" />
+    <Resource Include="assets\flags\au.png" />
+    <Resource Include="assets\flags\aw.png" />
+    <Resource Include="assets\flags\ax.png" />
+    <Resource Include="assets\flags\az.png" />
+    <Resource Include="assets\flags\ba.png" />
+    <Resource Include="assets\flags\bb.png" />
+    <Resource Include="assets\flags\bd.png" />
+    <Resource Include="assets\flags\be.png" />
+    <Resource Include="assets\flags\bf.png" />
+    <Resource Include="assets\flags\bg.png" />
+    <Resource Include="assets\flags\bh.png" />
+    <Resource Include="assets\flags\bi.png" />
+    <Resource Include="assets\flags\bj.png" />
+    <Resource Include="assets\flags\bl.png" />
+    <Resource Include="assets\flags\bm.png" />
+    <Resource Include="assets\flags\bn.png" />
+    <Resource Include="assets\flags\bo.png" />
+    <Resource Include="assets\flags\bq.png" />
+    <Resource Include="assets\flags\br.png" />
+    <Resource Include="assets\flags\bs.png" />
+    <Resource Include="assets\flags\bt.png" />
+    <Resource Include="assets\flags\bv.png" />
+    <Resource Include="assets\flags\bw.png" />
+    <Resource Include="assets\flags\by.png" />
+    <Resource Include="assets\flags\bz.png" />
+    <Resource Include="assets\flags\ca.png" />
+    <Resource Include="assets\flags\cc.png" />
+    <Resource Include="assets\flags\cd.png" />
+    <Resource Include="assets\flags\cf.png" />
+    <Resource Include="assets\flags\cg.png" />
+    <Resource Include="assets\flags\ch.png" />
+    <Resource Include="assets\flags\ci.png" />
+    <Resource Include="assets\flags\ck.png" />
+    <Resource Include="assets\flags\cl.png" />
+    <Resource Include="assets\flags\cm.png" />
+    <Resource Include="assets\flags\cn.png" />
+    <Resource Include="assets\flags\co.png" />
+    <Resource Include="assets\flags\cr.png" />
+    <Resource Include="assets\flags\cu.png" />
+    <Resource Include="assets\flags\cv.png" />
+    <Resource Include="assets\flags\cw.png" />
+    <Resource Include="assets\flags\cx.png" />
+    <Resource Include="assets\flags\cy.png" />
+    <Resource Include="assets\flags\cz.png" />
+    <Resource Include="assets\flags\de.png" />
+    <Resource Include="assets\flags\dj.png" />
+    <Resource Include="assets\flags\dk.png" />
+    <Resource Include="assets\flags\dm.png" />
+    <Resource Include="assets\flags\do.png" />
+    <Resource Include="assets\flags\dz.png" />
+    <Resource Include="assets\flags\ec.png" />
+    <Resource Include="assets\flags\ee.png" />
+    <Resource Include="assets\flags\eg.png" />
+    <Resource Include="assets\flags\eh.png" />
+    <Resource Include="assets\flags\er.png" />
+    <Resource Include="assets\flags\es.png" />
+    <Resource Include="assets\flags\et.png" />
+    <Resource Include="assets\flags\eu.png" />
+    <Resource Include="assets\flags\fi.png" />
+    <Resource Include="assets\flags\fj.png" />
+    <Resource Include="assets\flags\fk.png" />
+    <Resource Include="assets\flags\fm.png" />
+    <Resource Include="assets\flags\fo.png" />
+    <Resource Include="assets\flags\fr.png" />
+    <Resource Include="assets\flags\ga.png" />
+    <Resource Include="assets\flags\gb-eng.png" />
+    <Resource Include="assets\flags\gb-nir.png" />
+    <Resource Include="assets\flags\gb-sct.png" />
+    <Resource Include="assets\flags\gb-wls.png" />
+    <Resource Include="assets\flags\gb.png" />
+    <Resource Include="assets\flags\gd.png" />
+    <Resource Include="assets\flags\ge.png" />
+    <Resource Include="assets\flags\gf.png" />
+    <Resource Include="assets\flags\gg.png" />
+    <Resource Include="assets\flags\gh.png" />
+    <Resource Include="assets\flags\gi.png" />
+    <Resource Include="assets\flags\gl.png" />
+    <Resource Include="assets\flags\gm.png" />
+    <Resource Include="assets\flags\gn.png" />
+    <Resource Include="assets\flags\gp.png" />
+    <Resource Include="assets\flags\gq.png" />
+    <Resource Include="assets\flags\gr.png" />
+    <Resource Include="assets\flags\gs.png" />
+    <Resource Include="assets\flags\gt.png" />
+    <Resource Include="assets\flags\gu.png" />
+    <Resource Include="assets\flags\gw.png" />
+    <Resource Include="assets\flags\gy.png" />
+    <Resource Include="assets\flags\hk.png" />
+    <Resource Include="assets\flags\hm.png" />
+    <Resource Include="assets\flags\hn.png" />
+    <Resource Include="assets\flags\hr.png" />
+    <Resource Include="assets\flags\ht.png" />
+    <Resource Include="assets\flags\hu.png" />
+    <Resource Include="assets\flags\id.png" />
+    <Resource Include="assets\flags\ie.png" />
+    <Resource Include="assets\flags\il.png" />
+    <Resource Include="assets\flags\im.png" />
+    <Resource Include="assets\flags\in.png" />
+    <Resource Include="assets\flags\io.png" />
+    <Resource Include="assets\flags\iq.png" />
+    <Resource Include="assets\flags\ir.png" />
+    <Resource Include="assets\flags\is.png" />
+    <Resource Include="assets\flags\it.png" />
+    <Resource Include="assets\flags\je.png" />
+    <Resource Include="assets\flags\jm.png" />
+    <Resource Include="assets\flags\jo.png" />
+    <Resource Include="assets\flags\jp.png" />
+    <Resource Include="assets\flags\ke.png" />
+    <Resource Include="assets\flags\kg.png" />
+    <Resource Include="assets\flags\kh.png" />
+    <Resource Include="assets\flags\ki.png" />
+    <Resource Include="assets\flags\km.png" />
+    <Resource Include="assets\flags\kn.png" />
+    <Resource Include="assets\flags\kp.png" />
+    <Resource Include="assets\flags\kr.png" />
+    <Resource Include="assets\flags\kw.png" />
+    <Resource Include="assets\flags\ky.png" />
+    <Resource Include="assets\flags\kz.png" />
+    <Resource Include="assets\flags\la.png" />
+    <Resource Include="assets\flags\lb.png" />
+    <Resource Include="assets\flags\lc.png" />
+    <Resource Include="assets\flags\li.png" />
+    <Resource Include="assets\flags\lk.png" />
+    <Resource Include="assets\flags\lr.png" />
+    <Resource Include="assets\flags\ls.png" />
+    <Resource Include="assets\flags\lt.png" />
+    <Resource Include="assets\flags\lu.png" />
+    <Resource Include="assets\flags\lv.png" />
+    <Resource Include="assets\flags\ly.png" />
+    <Resource Include="assets\flags\ma.png" />
+    <Resource Include="assets\flags\mc.png" />
+    <Resource Include="assets\flags\md.png" />
+    <Resource Include="assets\flags\me.png" />
+    <Resource Include="assets\flags\mf.png" />
+    <Resource Include="assets\flags\mg.png" />
+    <Resource Include="assets\flags\mh.png" />
+    <Resource Include="assets\flags\mk.png" />
+    <Resource Include="assets\flags\ml.png" />
+    <Resource Include="assets\flags\mm.png" />
+    <Resource Include="assets\flags\mn.png" />
+    <Resource Include="assets\flags\mo.png" />
+    <Resource Include="assets\flags\mp.png" />
+    <Resource Include="assets\flags\mq.png" />
+    <Resource Include="assets\flags\mr.png" />
+    <Resource Include="assets\flags\ms.png" />
+    <Resource Include="assets\flags\mt.png" />
+    <Resource Include="assets\flags\mu.png" />
+    <Resource Include="assets\flags\mv.png" />
+    <Resource Include="assets\flags\mw.png" />
+    <Resource Include="assets\flags\mx.png" />
+    <Resource Include="assets\flags\my.png" />
+    <Resource Include="assets\flags\mz.png" />
+    <Resource Include="assets\flags\na.png" />
+    <Resource Include="assets\flags\nc.png" />
+    <Resource Include="assets\flags\ne.png" />
+    <Resource Include="assets\flags\nf.png" />
+    <Resource Include="assets\flags\ng.png" />
+    <Resource Include="assets\flags\ni.png" />
+    <Resource Include="assets\flags\nl.png" />
+    <Resource Include="assets\flags\no.png" />
+    <Resource Include="assets\flags\np.png" />
+    <Resource Include="assets\flags\nr.png" />
+    <Resource Include="assets\flags\nu.png" />
+    <Resource Include="assets\flags\nz.png" />
+    <Resource Include="assets\flags\om.png" />
+    <Resource Include="assets\flags\pa.png" />
+    <Resource Include="assets\flags\pe.png" />
+    <Resource Include="assets\flags\pf.png" />
+    <Resource Include="assets\flags\pg.png" />
+    <Resource Include="assets\flags\ph.png" />
+    <Resource Include="assets\flags\pk.png" />
+    <Resource Include="assets\flags\pl.png" />
+    <Resource Include="assets\flags\pm.png" />
+    <Resource Include="assets\flags\pn.png" />
+    <Resource Include="assets\flags\pr.png" />
+    <Resource Include="assets\flags\ps.png" />
+    <Resource Include="assets\flags\pt.png" />
+    <Resource Include="assets\flags\pw.png" />
+    <Resource Include="assets\flags\py.png" />
+    <Resource Include="assets\flags\qa.png" />
+    <Resource Include="assets\flags\re.png" />
+    <Resource Include="assets\flags\ro.png" />
+    <Resource Include="assets\flags\rs.png" />
+    <Resource Include="assets\flags\ru.png" />
+    <Resource Include="assets\flags\rw.png" />
+    <Resource Include="assets\flags\sa.png" />
+    <Resource Include="assets\flags\sb.png" />
+    <Resource Include="assets\flags\sc.png" />
+    <Resource Include="assets\flags\sd.png" />
+    <Resource Include="assets\flags\se.png" />
+    <Resource Include="assets\flags\sg.png" />
+    <Resource Include="assets\flags\sh.png" />
+    <Resource Include="assets\flags\si.png" />
+    <Resource Include="assets\flags\sj.png" />
+    <Resource Include="assets\flags\sk.png" />
+    <Resource Include="assets\flags\sl.png" />
+    <Resource Include="assets\flags\sm.png" />
+    <Resource Include="assets\flags\sn.png" />
+    <Resource Include="assets\flags\so.png" />
+    <Resource Include="assets\flags\sr.png" />
+    <Resource Include="assets\flags\ss.png" />
+    <Resource Include="assets\flags\st.png" />
+    <Resource Include="assets\flags\sv.png" />
+    <Resource Include="assets\flags\sx.png" />
+    <Resource Include="assets\flags\sy.png" />
+    <Resource Include="assets\flags\sz.png" />
+    <Resource Include="assets\flags\tc.png" />
+    <Resource Include="assets\flags\td.png" />
+    <Resource Include="assets\flags\tf.png" />
+    <Resource Include="assets\flags\tg.png" />
+    <Resource Include="assets\flags\th.png" />
+    <Resource Include="assets\flags\tj.png" />
+    <Resource Include="assets\flags\tk.png" />
+    <Resource Include="assets\flags\tl.png" />
+    <Resource Include="assets\flags\tm.png" />
+    <Resource Include="assets\flags\tn.png" />
+    <Resource Include="assets\flags\to.png" />
+    <Resource Include="assets\flags\tr.png" />
+    <Resource Include="assets\flags\tt.png" />
+    <Resource Include="assets\flags\tv.png" />
+    <Resource Include="assets\flags\tw.png" />
+    <Resource Include="assets\flags\tz.png" />
+    <Resource Include="assets\flags\ua.png" />
+    <Resource Include="assets\flags\ug.png" />
+    <Resource Include="assets\flags\um.png" />
+    <Resource Include="assets\flags\us.png" />
+    <Resource Include="assets\flags\uy.png" />
+    <Resource Include="assets\flags\uz.png" />
+    <Resource Include="assets\flags\va.png" />
+    <Resource Include="assets\flags\vc.png" />
+    <Resource Include="assets\flags\ve.png" />
+    <Resource Include="assets\flags\vg.png" />
+    <Resource Include="assets\flags\vi.png" />
+    <Resource Include="assets\flags\vn.png" />
+    <Resource Include="assets\flags\vu.png" />
+    <Resource Include="assets\flags\wf.png" />
+    <Resource Include="assets\flags\ws.png" />
+    <Resource Include="assets\flags\xk.png" />
+    <Resource Include="assets\flags\ye.png" />
+    <Resource Include="assets\flags\yt.png" />
+    <Resource Include="assets\flags\za.png" />
+    <Resource Include="assets\flags\zm.png" />
+    <Resource Include="assets\flags\zw.png" />
+    <Resource Include="assets\location.gif" />
+    <Resource Include="assets\logout.png" />
+    <Resource Include="assets\loginsplashimage.png" />
+    <Resource Include="assets\leftarrow.png" />
+    <Resource Include="assets\rightarrow.png" />
+    <Resource Include="assets\loginslide1.png" />
+    <Resource Include="assets\privacy.png" />
+    <Resource Include="assets\icon-arrow-right.png" />
+    <Resource Include="assets\home-rect.png" />
+    <Resource Include="assets\closeBtn_default.png" />
+    <Resource Include="assets\closeBtn_MouseOver.png" />
+    <Resource Include="assets\img_background.png" />
+    <Resource Include="assets\img_contact.png" />
+    <Resource Include="assets\img_home.png" />
+    <Resource Include="assets\img_map.png" />
+    <Resource Include="assets\img_message.png" />
+    <Resource Include="assets\img_setting.png" />
+    <Resource Include="assets\img_signout.png" />
+    <Resource Include="assets\right-arrow-round.png" />
+    <Resource Include="assets\Group 26151.png" />
+    <Resource Include="assets\connect-map-bg.png" />
+    <Resource Include="assets\home-map-bg.png" />
+    <Resource Include="assets\map-img.png" />
+    <Resource Include="assets\oyster-blue-logo.png" />
+    <Resource Include="assets\green-dot.png" />
+    <Resource Include="assets\grey-dot.png" />
+    <Resource Include="assets\iconprotocol.png" />
+    <Content Include="assets\ripplessvg.svg" />
+    <Resource Include="assets\thunder.png" />
+    <Resource Include="location.gif" />
+    <Resource Include="assets\SplashScreen.png" />
+    <Resource Include="assets\signupslide1.png" />
+    <Resource Include="leftarrow.png" />
+    <Resource Include="loginslide1.png" />
+    <Resource Include="assets\vpnicon.png" />
+    <Resource Include="assets\signout.png" />
+    <Resource Include="assets\settings.png" />
+    <Resource Include="assets\user.png" />
+    <Resource Include="help.png" />
+    <Resource Include="icon-arrow-right.png" />
+    <Resource Include="home-rect.png" />
+    <Resource Include="assets\tgBtn_default.png" />
+    <Resource Include="assets\tgBtn_MouseOver.png" />
+    <Resource Include="Group 26151.png" />
+    <Resource Include="connect-map-bg.png" />
+    <Resource Include="home-map-bg.png" />
+    <Resource Include="map-img.png" />
+    <Resource Include="green-dot.png" />
+    <Resource Include="grey-dot.png" />
+    <Resource Include="oyster-blue-logo.png" />
+    <Resource Include="assets\search-magnify.png" />
+    <Content Include="oysterwhite.svg" />
+    <Resource Include="rightarrow.png" />
+    <Resource Include="privacy.png" />
+    <Resource Include="right-arrow-round.png" />
+    <Content Include="ripplessvg.svg" />
+    <Content Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\nugetexample.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logger\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="NativeMessaging\NativeMessaging.csproj">
+      <Project>{7617a281-576a-4478-bfa7-44530ac2ed6c}</Project>
+      <Name>NativeMessaging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('packages\SQLitePCL.raw.0.8.6\build\net45\SQLitePCL.raw.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SQLitePCL.raw.0.8.6\build\net45\SQLitePCL.raw.targets'))" />
+    <Error Condition="!Exists('packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets'))" />
+    <Error Condition="!Exists('packages\SQLite.3.13.0\build\net45\SQLite.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SQLite.3.13.0\build\net45\SQLite.props'))" />
+  </Target>
+  <Import Project="packages\SQLitePCL.raw.0.8.6\build\net45\SQLitePCL.raw.targets" Condition="Exists('packages\SQLitePCL.raw.0.8.6\build\net45\SQLitePCL.raw.targets')" />
+  <Import Project="packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
+</Project>

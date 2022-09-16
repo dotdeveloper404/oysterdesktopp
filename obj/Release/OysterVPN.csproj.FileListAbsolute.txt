@@ -1,0 +1,305 @@
+D:\VS-Repo\Oyster\bin\Release\x86\sqlite3.dll
+D:\VS-Repo\Oyster\bin\Release\x64\sqlite3.dll
+D:\VS-Repo\Oyster\bin\Release\runtimes\win-x86\native\e_sqlite3.dll
+D:\VS-Repo\Oyster\bin\Release\runtimes\win-x64\native\e_sqlite3.dll
+D:\VS-Repo\Oyster\bin\Release\runtimes\win-arm\native\e_sqlite3.dll
+D:\VS-Repo\Oyster\bin\Release\OysterVPN.exe.config
+D:\VS-Repo\Oyster\bin\Release\OysterVPN.exe.manifest
+D:\VS-Repo\Oyster\bin\Release\OysterVPN.application
+D:\VS-Repo\Oyster\bin\Release\OysterVPN.exe
+D:\VS-Repo\Oyster\bin\Release\OysterVPN.pdb
+D:\VS-Repo\Oyster\bin\Release\AlertBarWpf.dll
+D:\VS-Repo\Oyster\bin\Release\CountryData.Standard.dll
+D:\VS-Repo\Oyster\bin\Release\DotRas.dll
+D:\VS-Repo\Oyster\bin\Release\FirewallManager.dll
+D:\VS-Repo\Oyster\bin\Release\log4net.dll
+D:\VS-Repo\Oyster\bin\Release\MaterialDesign.dll
+D:\VS-Repo\Oyster\bin\Release\MaterialDesignColors.dll
+D:\VS-Repo\Oyster\bin\Release\MaterialDesignExtensions.dll
+D:\VS-Repo\Oyster\bin\Release\MaterialDesignThemes.Wpf.dll
+D:\VS-Repo\Oyster\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+D:\VS-Repo\Oyster\bin\Release\Microsoft.Data.Sqlite.dll
+D:\VS-Repo\Oyster\bin\Release\NativeMessaging.dll
+D:\VS-Repo\Oyster\bin\Release\Newtonsoft.Json.dll
+D:\VS-Repo\Oyster\bin\Release\Notifications.Wpf.dll
+D:\VS-Repo\Oyster\bin\Release\Plugin.SQLiteConnection.Abstractions.dll
+D:\VS-Repo\Oyster\bin\Release\Plugin.SQLiteConnection.dll
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Converters.Wpf.dll
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Core.dll
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Css.dll
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Dom.dll
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Model.dll
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Rendering.Gdi.dll
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Rendering.Wpf.dll
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Runtime.Wpf.dll
+D:\VS-Repo\Oyster\bin\Release\SQLite-net.dll
+D:\VS-Repo\Oyster\bin\Release\SQLitePCL.raw.dll
+D:\VS-Repo\Oyster\bin\Release\SQLitePCLRaw.batteries_v2.dll
+D:\VS-Repo\Oyster\bin\Release\SQLitePCLRaw.core.dll
+D:\VS-Repo\Oyster\bin\Release\SQLitePCLRaw.nativelibrary.dll
+D:\VS-Repo\Oyster\bin\Release\SQLitePCLRaw.provider.dynamic_cdecl.dll
+D:\VS-Repo\Oyster\bin\Release\System.Buffers.dll
+D:\VS-Repo\Oyster\bin\Release\System.Collections.Immutable.dll
+D:\VS-Repo\Oyster\bin\Release\System.Memory.dll
+D:\VS-Repo\Oyster\bin\Release\System.Numerics.Vectors.dll
+D:\VS-Repo\Oyster\bin\Release\System.Reflection.Metadata.dll
+D:\VS-Repo\Oyster\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+D:\VS-Repo\Oyster\bin\Release\System.Text.Encodings.Web.dll
+D:\VS-Repo\Oyster\bin\Release\System.Text.Json.dll
+D:\VS-Repo\Oyster\bin\Release\System.Threading.Tasks.Extensions.dll
+D:\VS-Repo\Oyster\bin\Release\System.ValueTuple.dll
+D:\VS-Repo\Oyster\bin\Release\WpfAnimatedGif.dll
+D:\VS-Repo\Oyster\bin\Release\NativeMessaging.pdb
+D:\VS-Repo\Oyster\bin\Release\NativeMessaging.xml
+D:\VS-Repo\Oyster\bin\Release\DotRas.xml
+D:\VS-Repo\Oyster\bin\Release\log4net.xml
+D:\VS-Repo\Oyster\bin\Release\MaterialDesignColors.pdb
+D:\VS-Repo\Oyster\bin\Release\MaterialDesignExtensions.xml
+D:\VS-Repo\Oyster\bin\Release\MaterialDesignThemes.Wpf.pdb
+D:\VS-Repo\Oyster\bin\Release\MaterialDesignThemes.Wpf.xml
+D:\VS-Repo\Oyster\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+D:\VS-Repo\Oyster\bin\Release\Microsoft.Data.Sqlite.xml
+D:\VS-Repo\Oyster\bin\Release\Newtonsoft.Json.xml
+D:\VS-Repo\Oyster\bin\Release\Plugin.SQLiteConnection.pdb
+D:\VS-Repo\Oyster\bin\Release\Plugin.SQLiteConnection.xml
+D:\VS-Repo\Oyster\bin\Release\Plugin.SQLiteConnection.Abstractions.pdb
+D:\VS-Repo\Oyster\bin\Release\Plugin.SQLiteConnection.Abstractions.xml
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Converters.Wpf.xml
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Core.xml
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Css.xml
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Dom.xml
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Model.xml
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Rendering.Gdi.xml
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Rendering.Wpf.xml
+D:\VS-Repo\Oyster\bin\Release\SharpVectors.Runtime.Wpf.xml
+D:\VS-Repo\Oyster\bin\Release\System.Buffers.xml
+D:\VS-Repo\Oyster\bin\Release\System.Collections.Immutable.xml
+D:\VS-Repo\Oyster\bin\Release\System.Memory.xml
+D:\VS-Repo\Oyster\bin\Release\System.Numerics.Vectors.xml
+D:\VS-Repo\Oyster\bin\Release\System.Reflection.Metadata.xml
+D:\VS-Repo\Oyster\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+D:\VS-Repo\Oyster\bin\Release\System.Text.Encodings.Web.xml
+D:\VS-Repo\Oyster\bin\Release\System.Text.Json.xml
+D:\VS-Repo\Oyster\bin\Release\System.Threading.Tasks.Extensions.xml
+D:\VS-Repo\Oyster\bin\Release\System.ValueTuple.xml
+D:\VS-Repo\Oyster\bin\Release\WpfAnimatedGif.pdb
+D:\VS-Repo\Oyster\bin\Release\WpfAnimatedGif.xml
+D:\VS-Repo\Oyster\bin\Release\ar-DZ\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\cs\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\cs-CZ\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\de\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\fr\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\fr-FR\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\pt\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\pt-BR\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\Ru\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\ru-ru\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\bin\Release\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.csprojAssemblyReference.cache
+D:\VS-Repo\Oyster\obj\Release\CircularProgressBar.baml
+D:\VS-Repo\Oyster\obj\Release\CircularProgressBar.g.cs
+D:\VS-Repo\Oyster\obj\Release\ForgotPassword.g.cs
+D:\VS-Repo\Oyster\obj\Release\HomeScreen.g.cs
+D:\VS-Repo\Oyster\obj\Release\HomeWindow.g.cs
+D:\VS-Repo\Oyster\obj\Release\Login.g.cs
+D:\VS-Repo\Oyster\obj\Release\LoginSplash.g.cs
+D:\VS-Repo\Oyster\obj\Release\MainWindow.g.cs
+D:\VS-Repo\Oyster\obj\Release\MessageBoxCustom.g.cs
+D:\VS-Repo\Oyster\obj\Release\Options.g.cs
+D:\VS-Repo\Oyster\obj\Release\SecureDevice.g.cs
+D:\VS-Repo\Oyster\obj\Release\Signup.g.cs
+D:\VS-Repo\Oyster\obj\Release\SpeedTest.g.cs
+D:\VS-Repo\Oyster\obj\Release\SplashForm.g.cs
+D:\VS-Repo\Oyster\obj\Release\SplitTunnel.g.cs
+D:\VS-Repo\Oyster\obj\Release\testing.g.cs
+D:\VS-Repo\Oyster\obj\Release\VpnLocations.g.cs
+D:\VS-Repo\Oyster\obj\Release\App.g.cs
+D:\VS-Repo\Oyster\obj\Release\OysterVPN_Content.g.cs
+D:\VS-Repo\Oyster\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\VS-Repo\Oyster\obj\Release\OysterVPN_MarkupCompile.cache
+D:\VS-Repo\Oyster\obj\Release\OysterVPN_MarkupCompile.lref
+D:\VS-Repo\Oyster\obj\Release\App.baml
+D:\VS-Repo\Oyster\obj\Release\ForgotPassword.baml
+D:\VS-Repo\Oyster\obj\Release\HomeScreen.baml
+D:\VS-Repo\Oyster\obj\Release\HomeWindow.baml
+D:\VS-Repo\Oyster\obj\Release\Login.baml
+D:\VS-Repo\Oyster\obj\Release\LoginSplash.baml
+D:\VS-Repo\Oyster\obj\Release\MainWindow.baml
+D:\VS-Repo\Oyster\obj\Release\MessageBoxCustom.baml
+D:\VS-Repo\Oyster\obj\Release\Options.baml
+D:\VS-Repo\Oyster\obj\Release\SecureDevice.baml
+D:\VS-Repo\Oyster\obj\Release\Signup.baml
+D:\VS-Repo\Oyster\obj\Release\SpeedTest.baml
+D:\VS-Repo\Oyster\obj\Release\SplashForm.baml
+D:\VS-Repo\Oyster\obj\Release\SplitTunnel.baml
+D:\VS-Repo\Oyster\obj\Release\testing.baml
+D:\VS-Repo\Oyster\obj\Release\VpnLocations.baml
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.g.resources
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.Properties.Resources.resources
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.csproj.GenerateResource.cache
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.csproj.CoreCompileInputs.cache
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.TrustInfo.xml
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.exe.manifest
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.application
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.csproj.CopyComplete
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.exe
+D:\VS-Repo\Oyster\obj\Release\OysterVPN.pdb
+C:\New Design\New Design\Oyster\bin\Release\x86\sqlite3.dll
+C:\New Design\New Design\Oyster\bin\Release\x64\sqlite3.dll
+C:\New Design\New Design\Oyster\bin\Release\runtimes\win-x86\native\e_sqlite3.dll
+C:\New Design\New Design\Oyster\bin\Release\runtimes\win-x64\native\e_sqlite3.dll
+C:\New Design\New Design\Oyster\bin\Release\runtimes\win-arm\native\e_sqlite3.dll
+C:\New Design\New Design\Oyster\bin\Release\OysterVPN.exe.config
+C:\New Design\New Design\Oyster\bin\Release\OysterVPN.exe.manifest
+C:\New Design\New Design\Oyster\bin\Release\OysterVPN.application
+C:\New Design\New Design\Oyster\bin\Release\OysterVPN.exe
+C:\New Design\New Design\Oyster\bin\Release\OysterVPN.pdb
+C:\New Design\New Design\Oyster\bin\Release\AlertBarWpf.dll
+C:\New Design\New Design\Oyster\bin\Release\CountryData.Standard.dll
+C:\New Design\New Design\Oyster\bin\Release\DotRas.dll
+C:\New Design\New Design\Oyster\bin\Release\FirewallManager.dll
+C:\New Design\New Design\Oyster\bin\Release\FontAwesome.WPF.dll
+C:\New Design\New Design\Oyster\bin\Release\log4net.dll
+C:\New Design\New Design\Oyster\bin\Release\MaterialDesign.dll
+C:\New Design\New Design\Oyster\bin\Release\MaterialDesignColors.dll
+C:\New Design\New Design\Oyster\bin\Release\MaterialDesignExtensions.dll
+C:\New Design\New Design\Oyster\bin\Release\MaterialDesignThemes.Wpf.dll
+C:\New Design\New Design\Oyster\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\New Design\New Design\Oyster\bin\Release\Microsoft.Data.Sqlite.dll
+C:\New Design\New Design\Oyster\bin\Release\NativeMessaging.dll
+C:\New Design\New Design\Oyster\bin\Release\Newtonsoft.Json.dll
+C:\New Design\New Design\Oyster\bin\Release\Notifications.Wpf.dll
+C:\New Design\New Design\Oyster\bin\Release\Plugin.SQLiteConnection.Abstractions.dll
+C:\New Design\New Design\Oyster\bin\Release\Plugin.SQLiteConnection.dll
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Converters.Wpf.dll
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Core.dll
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Css.dll
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Dom.dll
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Model.dll
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Rendering.Gdi.dll
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Rendering.Wpf.dll
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Runtime.Wpf.dll
+C:\New Design\New Design\Oyster\bin\Release\SQLite-net.dll
+C:\New Design\New Design\Oyster\bin\Release\SQLitePCL.raw.dll
+C:\New Design\New Design\Oyster\bin\Release\SQLitePCLRaw.batteries_v2.dll
+C:\New Design\New Design\Oyster\bin\Release\SQLitePCLRaw.core.dll
+C:\New Design\New Design\Oyster\bin\Release\SQLitePCLRaw.nativelibrary.dll
+C:\New Design\New Design\Oyster\bin\Release\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Buffers.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Collections.Immutable.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Memory.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Numerics.Vectors.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Reflection.Metadata.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Text.Encodings.Web.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Text.Json.dll
+C:\New Design\New Design\Oyster\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\New Design\New Design\Oyster\bin\Release\System.ValueTuple.dll
+C:\New Design\New Design\Oyster\bin\Release\WpfAnimatedGif.dll
+C:\New Design\New Design\Oyster\bin\Release\NativeMessaging.pdb
+C:\New Design\New Design\Oyster\bin\Release\NativeMessaging.xml
+C:\New Design\New Design\Oyster\bin\Release\DotRas.xml
+C:\New Design\New Design\Oyster\bin\Release\FontAwesome.WPF.xml
+C:\New Design\New Design\Oyster\bin\Release\log4net.xml
+C:\New Design\New Design\Oyster\bin\Release\MaterialDesignColors.pdb
+C:\New Design\New Design\Oyster\bin\Release\MaterialDesignExtensions.xml
+C:\New Design\New Design\Oyster\bin\Release\MaterialDesignThemes.Wpf.pdb
+C:\New Design\New Design\Oyster\bin\Release\MaterialDesignThemes.Wpf.xml
+C:\New Design\New Design\Oyster\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\New Design\New Design\Oyster\bin\Release\Microsoft.Data.Sqlite.xml
+C:\New Design\New Design\Oyster\bin\Release\Newtonsoft.Json.xml
+C:\New Design\New Design\Oyster\bin\Release\Plugin.SQLiteConnection.pdb
+C:\New Design\New Design\Oyster\bin\Release\Plugin.SQLiteConnection.xml
+C:\New Design\New Design\Oyster\bin\Release\Plugin.SQLiteConnection.Abstractions.pdb
+C:\New Design\New Design\Oyster\bin\Release\Plugin.SQLiteConnection.Abstractions.xml
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Converters.Wpf.xml
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Core.xml
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Css.xml
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Dom.xml
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Model.xml
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Rendering.Gdi.xml
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Rendering.Wpf.xml
+C:\New Design\New Design\Oyster\bin\Release\SharpVectors.Runtime.Wpf.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Buffers.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Collections.Immutable.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Memory.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Numerics.Vectors.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Reflection.Metadata.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Text.Encodings.Web.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Text.Json.xml
+C:\New Design\New Design\Oyster\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\New Design\New Design\Oyster\bin\Release\System.ValueTuple.xml
+C:\New Design\New Design\Oyster\bin\Release\WpfAnimatedGif.pdb
+C:\New Design\New Design\Oyster\bin\Release\WpfAnimatedGif.xml
+C:\New Design\New Design\Oyster\bin\Release\ar-DZ\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\cs\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\cs-CZ\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\de\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\fr\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\fr-FR\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\pt\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\pt-BR\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\Ru\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\ru-ru\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\bin\Release\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.csproj.AssemblyReference.cache
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.csproj.SuggestedBindingRedirects.cache
+C:\New Design\New Design\Oyster\obj\Release\CircularProgressBar.baml
+C:\New Design\New Design\Oyster\obj\Release\ForgotPasswordForm.baml
+C:\New Design\New Design\Oyster\obj\Release\SignupForm.baml
+C:\New Design\New Design\Oyster\obj\Release\CircularProgressBar.g.cs
+C:\New Design\New Design\Oyster\obj\Release\ForgotPassword.g.cs
+C:\New Design\New Design\Oyster\obj\Release\ForgotPasswordForm.g.cs
+C:\New Design\New Design\Oyster\obj\Release\Home.g.cs
+C:\New Design\New Design\Oyster\obj\Release\HomeScreen.g.cs
+C:\New Design\New Design\Oyster\obj\Release\HomeWindow.g.cs
+C:\New Design\New Design\Oyster\obj\Release\Login.g.cs
+C:\New Design\New Design\Oyster\obj\Release\LoginForm.g.cs
+C:\New Design\New Design\Oyster\obj\Release\LoginSplash.g.cs
+C:\New Design\New Design\Oyster\obj\Release\MainWindow.g.cs
+C:\New Design\New Design\Oyster\obj\Release\MessageBoxCustom.g.cs
+C:\New Design\New Design\Oyster\obj\Release\Options.g.cs
+C:\New Design\New Design\Oyster\obj\Release\SecureDevice.g.cs
+C:\New Design\New Design\Oyster\obj\Release\SettingsScreen.g.cs
+C:\New Design\New Design\Oyster\obj\Release\Signup.g.cs
+C:\New Design\New Design\Oyster\obj\Release\SignupForm.g.cs
+C:\New Design\New Design\Oyster\obj\Release\SpeedTest.g.cs
+C:\New Design\New Design\Oyster\obj\Release\SplashForm.g.cs
+C:\New Design\New Design\Oyster\obj\Release\SplitTunnel.g.cs
+C:\New Design\New Design\Oyster\obj\Release\testing.g.cs
+C:\New Design\New Design\Oyster\obj\Release\VpnLocations.g.cs
+C:\New Design\New Design\Oyster\obj\Release\App.g.cs
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN_Content.g.cs
+C:\New Design\New Design\Oyster\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN_MarkupCompile.cache
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN_MarkupCompile.lref
+C:\New Design\New Design\Oyster\obj\Release\App.baml
+C:\New Design\New Design\Oyster\obj\Release\ForgotPassword.baml
+C:\New Design\New Design\Oyster\obj\Release\Home.baml
+C:\New Design\New Design\Oyster\obj\Release\HomeScreen.baml
+C:\New Design\New Design\Oyster\obj\Release\HomeWindow.baml
+C:\New Design\New Design\Oyster\obj\Release\Login.baml
+C:\New Design\New Design\Oyster\obj\Release\LoginForm.baml
+C:\New Design\New Design\Oyster\obj\Release\LoginSplash.baml
+C:\New Design\New Design\Oyster\obj\Release\MainWindow.baml
+C:\New Design\New Design\Oyster\obj\Release\MessageBoxCustom.baml
+C:\New Design\New Design\Oyster\obj\Release\Options.baml
+C:\New Design\New Design\Oyster\obj\Release\SecureDevice.baml
+C:\New Design\New Design\Oyster\obj\Release\SettingsScreen.baml
+C:\New Design\New Design\Oyster\obj\Release\Signup.baml
+C:\New Design\New Design\Oyster\obj\Release\SpeedTest.baml
+C:\New Design\New Design\Oyster\obj\Release\SplashForm.baml
+C:\New Design\New Design\Oyster\obj\Release\SplitTunnel.baml
+C:\New Design\New Design\Oyster\obj\Release\testing.baml
+C:\New Design\New Design\Oyster\obj\Release\VpnLocations.baml
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.g.resources
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.Properties.Resources.resources
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.csproj.GenerateResource.cache
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.csproj.CoreCompileInputs.cache
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.TrustInfo.xml
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.exe.manifest
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.application
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.csproj.CopyComplete
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.exe
+C:\New Design\New Design\Oyster\obj\Release\OysterVPN.pdb

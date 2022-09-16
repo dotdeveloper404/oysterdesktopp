@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NativeMessaging</name>
+    </assembly>
+    <members>
+        <member name="T:NativeMessaging.ChromiumBrowser">
+            <summary>
+            Represent any browser derived from Google's Chromium.
+            </summary>
+        </member>
+        <member name="P:NativeMessaging.ChromiumBrowser.GoogleChrome">
+            <summary>
+            <see cref="T:NativeMessaging.ChromiumBrowser"/> object for Google Chrome.
+            </summary>
+        </member>
+        <member name="P:NativeMessaging.ChromiumBrowser.MicrosoftEdge">
+            <summary>
+            <see cref="T:NativeMessaging.ChromiumBrowser"/> object for Microsoft Edge.
+            </summary>
+        </member>
+        <member name="P:NativeMessaging.ChromiumBrowser.Mozilla">
+            <summary>
+            <see cref="T:NativeMessaging.ChromiumBrowser"/> object for Microsoft Edge.
+            </summary>
+        </member>
+        <member name="P:NativeMessaging.ChromiumBrowser.BrowserName">
+            <summary>
+            The name of the browser application.
+            </summary>
+        </member>
+        <member name="M:NativeMessaging.ChromiumBrowser.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:NativeMessaging.ChromiumBrowser"/> object.
+            </summary>
+            <param name="browserName">The name of the browser application.</param>
+            <param name="RegKeyBaseLocation">Base location for the browser settigns in the Windows Registry.</param>
+        </member>
+        <member name="M:NativeMessaging.ChromiumBrowser.IsRegistered(System.String,System.String)">
+            <summary>
+            Checks if the host is registered with the browser
+            </summary>
+            <param name="ManifestPath">Path to the Native Messaging Host manifest file</param>
+            <param name="Hostname">The hostname for the Native Messaging Host application</param>
+            <returns><see langword="true"/> if the required information is present in the registry.</returns>
+        </member>
+        <member name="M:NativeMessaging.ChromiumBrowser.Register(System.String,System.String)">
+            <summary>
+            Register the application to open with the browser.
+            </summary>
+            <param name="Hostname">The hostname for the Native Messaging Host application</param>
+            <param name="ManifestPath">Path to the Native Messaging Host manifest file</param>
+        </member>
+        <member name="M:NativeMessaging.ChromiumBrowser.Unregister(System.String)">
+            <summary>
+            De-register the application to open with the browser.
+            </summary>
+            <param name="Hostname">The hostname for the Native Messaging Host application</param>
+        </member>
+        <member name="M:NativeMessaging.ChromiumBrowser.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:NativeMessaging.NotRegisteredWithBrowserException">
+            <summary>
+            Exception raised when trying to interact with chrome while the extension is not registered in the Windows Registry
+            </summary>
+        </member>
+        <member name="T:NativeMessaging.Host">
+            <summary>
+            Abstract class that should be extended to communicate with browsers
+            </summary>
+        </member>
+        <member name="P:NativeMessaging.Host.Hostname">
+            <summary>
+            Name of the Native Messaging Host
+            </summary>
+        </member>
+        <member name="P:NativeMessaging.Host.SupportedBrowsers">
+            <summary>
+            List of supported Chromium browsers.
+            </summary>
+        </member>
+        <member name="M:NativeMessaging.Host.#ctor(System.Boolean)">
+            <summary>
+            Creates the Host object
+            </summary>
+            <param name="sendConfirmationReceipt"><see langword="true" /> for the host to automatically send message confirmation receipt.</param>
+        </member>
+        <member name="M:NativeMessaging.Host.Listen">
+            <summary>
+            Starts listening for input.
+            </summary>
+        </member>
+        <member name="M:NativeMessaging.Host.SendMessage(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Sends a message to Chrome, note that the message might not be able to reach Chrome if the stdIn / stdOut aren't properly configured (i.e. Process needs to be started by Chrome)
+            </summary>
+            <param name="data">A <see cref="T:Newtonsoft.Json.Linq.JObject"/> containing the data to be sent.</param>
+        </member>
+        <member name="M:NativeMessaging.Host.ProcessReceivedMessage(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Override this method in your extended <see cref="T:NativeMessaging.Host"/> to process messages received from Chrome.
+            </summary>
+            <param name="data">A <see cref="T:Newtonsoft.Json.Linq.JObject"/> containing the data received.</param>
+        </member>
+        <member name="M:NativeMessaging.Host.GenerateManifest(System.String,System.String[],System.Boolean)">
+            <summary>
+            Generates the manifest and saves it to the correct location.
+            </summary>
+            <param name="description">Short application description to be included in the manifest.</param>
+            <param name="allowedOrigins">List of extensions that should have access to the native messaging host.<br />Wildcards such as <code>chrome-extension://*/*</code> are not allowed.</param>
+            <param name="overwrite">Determines if the manifest should be overwritten if it already exists.<br />Defaults to <see langword="false"/>.</param>
+        </member>
+        <member name="M:NativeMessaging.Host.RemoveManifest">
+            <summary>
+            Removes the manifest from application folder
+            </summary>
+        </member>
+        <member name="M:NativeMessaging.Host.IsRegistered">
+            <summary>
+            Checks if the host is registered with all required browsers.
+            </summary>
+            <returns><see langword="true"/> if the required information is present in the registry.</returns>
+        </member>
+        <member name="M:NativeMessaging.Host.Register">
+            <summary>
+            Register the application to open with all required browsers.
+            </summary>
+        </member>
+        <member name="M:NativeMessaging.Host.Unregister">
+            <summary>
+            De-register the application to open with all required browsers.
+            </summary>
+        </member>
+        <member name="T:NativeMessaging.Log">
+            <summary>
+            Controls the logging behavior of the application
+            </summary>
+        </member>
+        <member name="P:NativeMessaging.Log.MessageLogLocation">
+            <summary>
+            The path to the generated log file.
+            </summary>
+        </member>
+        <member name="P:NativeMessaging.Log.Active">
+            <summary>
+            Activate the logging if set to <see langword="true"/>
+            </summary>
+        </member>
+    </members>
+</doc>

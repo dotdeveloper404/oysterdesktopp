@@ -1,0 +1,29 @@
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Release\NativeMessaging.xml
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Release\NativeMessaging.dll
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Release\NativeMessaging.pdb
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Release\Newtonsoft.Json.dll
+D:\VS-Repo\OysterWPF\NativeMessaging\bin\Release\Newtonsoft.Json.xml
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Release\NativeMessaging.csprojAssemblyReference.cache
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Release\NativeMessaging.csproj.CoreCompileInputs.cache
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Release\NativeMessaging.csproj.CopyComplete
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Release\NativeMessaging.dll
+D:\VS-Repo\OysterWPF\NativeMessaging\obj\Release\NativeMessaging.pdb
+D:\VS-Repo\Oyster\NativeMessaging\bin\Release\NativeMessaging.xml
+D:\VS-Repo\Oyster\NativeMessaging\bin\Release\NativeMessaging.dll
+D:\VS-Repo\Oyster\NativeMessaging\bin\Release\NativeMessaging.pdb
+D:\VS-Repo\Oyster\NativeMessaging\bin\Release\Newtonsoft.Json.dll
+D:\VS-Repo\Oyster\NativeMessaging\bin\Release\Newtonsoft.Json.xml
+D:\VS-Repo\Oyster\NativeMessaging\obj\Release\NativeMessaging.csproj.CoreCompileInputs.cache
+D:\VS-Repo\Oyster\NativeMessaging\obj\Release\NativeMessaging.csproj.CopyComplete
+D:\VS-Repo\Oyster\NativeMessaging\obj\Release\NativeMessaging.dll
+D:\VS-Repo\Oyster\NativeMessaging\obj\Release\NativeMessaging.pdb
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Release\NativeMessaging.xml
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Release\NativeMessaging.dll
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Release\NativeMessaging.pdb
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Release\Newtonsoft.Json.dll
+C:\New Design\New Design\Oyster\NativeMessaging\bin\Release\Newtonsoft.Json.xml
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.csproj.AssemblyReference.cache
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.csproj.CoreCompileInputs.cache
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.csproj.CopyComplete
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.dll
+C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.pdb

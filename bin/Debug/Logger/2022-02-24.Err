@@ -1,0 +1,6 @@
+$d{DATE} [$t] ERROR ErrorLog - Could not find a part of the path 'C:\Windows\System32\assets\data\oyster\auth.txt'.
+$d{DATE} [$t] ERROR ErrorLog - Value cannot be null.
+Parameter name: s
+$d{DATE} [$t] ERROR ErrorLog - Value cannot be null.
+Parameter name: s
+$d{DATE} [$t] ERROR ErrorLog - Could not find a part of the path 'C:\Windows\System32\assets\data\oyster\auth.txt'.

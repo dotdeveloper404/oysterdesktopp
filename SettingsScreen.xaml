@@ -1,0 +1,62 @@
+﻿<Window x:Class="OysterVPN.SettingsScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OysterVPN"
+        mc:Ignorable="d"
+       Height="600" 
+        Width="881"
+        ResizeMode="CanMinimize"
+        Topmost="True"
+        >
+
+    <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border Name="border" BorderThickness="0"  Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            
+                        </Border>
+                        
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        
+        <StackPanel Margin="0,0,602,10" Background="#FFF7F7F7">
+
+            <Button  Height="42" Margin="23,20,22,0" BorderBrush="#FFDEDDDD" Background="White" >
+
+                <StackPanel Width="146">
+                    <Image Source="assets/iconprotocol.png"  Height="15"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-25,0,0,-16" />
+                    <TextBlock Width="174" Height="16"   Foreground="black"><Run Text="Auto Connect"/></TextBlock>
+                </StackPanel>
+
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+
+            </Button>
+
+        </StackPanel>
+
+        <Grid Margin="298,0,0,0">
+            <CheckBox Content="Launch OysterVPN on Windows Startup" HorizontalAlignment="Left" Margin="57,63,0,0" VerticalAlignment="Top" Width="297"/>
+        </Grid>
+        
+
+    </Grid>
+</Window>

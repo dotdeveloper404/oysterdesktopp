@@ -1,0 +1,5 @@
+D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\b\NativeMessaging\bin\Debug\NativeMessaging.dll
+D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\i\NativeMessaging\Debug\NativeMessaging.csprojAssemblyReference.cache
+D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\i\NativeMessaging\Debug\NativeMessaging.csproj.CoreCompileInputs.cache
+D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\i\NativeMessaging\Debug\NativeMessaging.csproj.CopyComplete
+D:\VS-Repo\Oyster\.vs\OysterVPN\v16\lut\0\i\NativeMessaging\Debug\NativeMessaging.dll

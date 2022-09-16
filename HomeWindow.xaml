@@ -1,0 +1,484 @@
+﻿<Window xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  x:Class="OysterVPN.HomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OysterVPN" 
+         xmlns:svgc1="http://sharpvectors.codeplex.com/svgc/"
+        mc:Ignorable="d"
+        Height="615" Width="380"
+        FontFamily="{StaticResource PoppinsBlack}" 
+        UseLayoutRounding="True"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        TextOptions.TextRenderingMode="Auto"
+        TextOptions.TextFormattingMode="Ideal"
+        RenderOptions.ClearTypeHint="Auto"
+                 
+       x:Name="Home_Window"  
+          
+
+        Title="OsyterVPN"  WindowStartupLocation="CenterScreen"  ResizeMode="CanMinimize" Icon="vpngreen.ico">
+    <!--Activated="Window_Activated" Deactivated="Window_Deactivated"-->
+    <Window.Resources>
+
+        
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BlueButton" TargetType="Button">
+
+            <Setter Property="Background" Value="Blue"></Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard BeginTime="00:00:00" 
+                        RepeatBehavior="Forever" 
+                                    AutoReverse="True"
+                        Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)">
+                                <ColorAnimation From="Black" To="Red" Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+
+        <Canvas x:Name="updatePanel"  Panel.ZIndex="-1"  Margin="0,0,0,526" Background="#B2060606">
+            <TextBlock TextWrapping="WrapWithOverflow"    Canvas.Left="66" Canvas.Top="10" Foreground="White" Height="34" Width="202" HorizontalAlignment="Left" TextDecorations="{x:Null}" FontSize="10" VerticalAlignment="Top" TextAlignment="Right">A new version of OysterVPN is available</TextBlock>
+            <Button Cursor="Hand"  FontWeight="Light"  Canvas.Left="284" Canvas.Top="15" FontSize="8" Height="25" Width="69" Click="Button_Click_1" Foreground="Black">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="10" Background="White" Margin="2,0,0,5">
+                            <TextBlock Text="Update Now" Foreground="#FF212121" 
+                                       HorizontalAlignment="Center"                                           
+                                       Margin="2,4,3,4"
+                                       Height="Auto"
+                                       FontSize="8" Width="62" TextAlignment="Center"></TextBlock>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Style="{StaticResource MyButton}" BorderThickness="0" Height="14" Width="16" Canvas.Left="40" Canvas.Top="10" Click="Button_Click">
+                <Button.Background>
+                    <ImageBrush  ImageSource="/OysterVPN;component/assets/quit.png"/>
+                </Button.Background>
+            </Button>
+
+        </Canvas>
+
+        <Canvas x:Name="connectionPanel"  Panel.ZIndex="-1" Background="#B2C1B8B8" Margin="0,0,0,526">
+            <TextBlock TextWrapping="WrapWithOverflow"    Canvas.Left="66" Canvas.Top="10" Foreground="black" Height="40" Width="256" HorizontalAlignment="Left" TextDecorations="{x:Null}" VerticalAlignment="Top" TextAlignment="Center">Cannot detect internet connection. VPN may be unavailable</TextBlock>
+
+            <Button Style="{StaticResource MyButton}" BorderThickness="0" Height="14" Width="16" Canvas.Left="40" Canvas.Top="10" Click="ConnectionPanelButton_Click">
+                <Button.Background>
+                    <ImageBrush  ImageSource="/OysterVPN;component/assets/quit.png"/>
+                </Button.Background>
+            </Button>
+
+        </Canvas>
+
+        <Canvas  x:Name="canvasBlue">
+            <Image   Name="homeBlue" Source="home-blue.png" Stretch="Fill" Height="338" Width="374"/>
+        </Canvas>
+        <Canvas Opacity="0" x:Name="canvasRed">
+            <Image   Visibility="Hidden"  Name="homeRed" Source="home-red-disconnected.png" Stretch="Fill" Height="338" Width="374"></Image>
+        </Canvas>
+        <Canvas Opacity="0" x:Name="canvasGreen">
+            <Image    Name="homeGreen" Source="home-green.png" Stretch="Fill" Height="338" Width="374"></Image>
+        </Canvas>
+
+        <Canvas Opacity="0" x:Name="canvasOrange">
+            <Image    Name="homeOrange" Source="home-orange.png" Stretch="Fill" Height="341" Width="374"></Image>
+        </Canvas>
+
+        <Image Source="map.png" Stretch="Fill" Margin="0,0,0,293"></Image>
+        <!--<Image x:Name="roundImage" Source="round-line.png" Margin="34,211,34,145" Opacity="0.1"/>-->
+        <Image x:Name="roundImage4" Source="assets/round4.png" Margin="34,199,34,139" Opacity="0.1">
+            <!--<Image.Style>
+                <Style>
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Image.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.Opacity)"
+							   BeginTime="0:0:0" Duration="0:0:0.5"
+							    From="0.1" To="0.0" RepeatBehavior="5x"  AutoReverse="True"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>-->
+        </Image>
+        <Image x:Name="roundImage3" Source="assets/round3.png" Margin="34,220,40,157" Opacity="0.1">
+            <!--<Image.Style>
+                <Style>
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Image.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.Opacity)"
+							   BeginTime="0:0:0" Duration="0:0:0.5"
+							   From="0.1" To="0.0" RepeatBehavior="5x" AutoReverse="True"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>-->
+        </Image>
+        <Image x:Name="roundImage2" Source="assets/round2.png" Margin="28,240,29,177" Opacity="0.1">
+            <!--<Image.Style>
+                <Style>
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Image.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.Opacity)"
+							   BeginTime="0:0:0" Duration="0:0:0.5"
+							   From="0.1" To="0.0" RepeatBehavior="5x" AutoReverse="True"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>-->
+        </Image>
+        <Image x:Name="roundImage1" Source="assets/round1.png" Margin="40,266,40,192" Opacity="0.1">
+            <!--<Image.Style>
+                <Style>
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Image.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="(Image.Opacity)"
+							   BeginTime="0:0:0" Duration="0:0:0.5"
+							   From="0.1" To="0.0" RepeatBehavior="5x" AutoReverse="True"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>-->
+        </Image>
+
+
+        <Grid  VerticalAlignment="Top" Margin="0,0,0,391">
+
+            <!--<Image    SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="HighQuality"  Source="oyster-logo.png" Margin="100,0,88,111" VerticalAlignment="Bottom"  Height="34" />-->
+
+            <svgc1:SvgViewbox  OptimizePath="False" TextAsGeometry="True" Source="assets/oysterwhite.svg" Margin="121,22,119,139"/>
+
+            <Label Content="CURRENT LOCATION" Height="24" Margin="130,80,132,88" HorizontalAlignment="Center" VerticalAlignment="Center" Width="112"   FontFamily="{StaticResource PoppinsSemiBold}"   FontSize="10">
+                <Label.Foreground>
+                    <SolidColorBrush Color="White" Opacity="0.25"/>
+                </Label.Foreground>
+
+            </Label>
+
+            <TextBlock Name="labelLocation" TextWrapping="WrapWithOverflow" Text="Paris,France" Margin="10,0,10,58"  VerticalAlignment="Bottom"   Foreground="White"  FontFamily="{StaticResource PoppinsMedium}" Height="27" HorizontalAlignment="Center" FontSize="18" Width="354" TextAlignment="Center"/>
+
+            <TextBlock Name="labelIpAddress"  TextWrapping="WrapWithOverflow" Text="255.255.255.255:1082"   Margin="10,0,10,38"  VerticalAlignment="Bottom"   Foreground="White"    FontFamily="{StaticResource PoppinsMedium}"  Height="20" HorizontalAlignment="Center" Width="354" TextAlignment="Center"/>
+
+            <Menu   HorizontalAlignment="Left" Height="16" Margin="19,22,0,0" VerticalAlignment="Top" Width="19" VerticalContentAlignment="Top">
+                <Menu.Background>
+                    <ImageBrush ImageSource="menu-bar.png" />
+                </Menu.Background>
+
+                <MenuItem    Header=""  Height="16" Width="19">
+                    <MenuItem  x:Name="MenuItemVPNLocation_Click" Header="_VPN Locations" Click="MenuItem_VPNLocation_Click">
+                        <MenuItem.Icon>
+                            <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="icon-location.png" Stretch="UniformToFill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <!--<MenuItem  Header="_Speed Test" Click="MenuItem_SpeedTest_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/OysterVPN;component/assets/speed-test.png" Stretch="UniformToFill" />
+                        </MenuItem.Icon>
+                    </MenuItem>-->
+                    <!--<Separator/>-->
+                    <MenuItem  x:Name="MenuItem_Options" Header="_Options" Click="MenuItem_Options_Click">
+                        <MenuItem.Icon>
+                            <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/OysterVPN;component/assets/options.png" Stretch="UniformToFill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="MenuItemHelpSupport" Header="_Help &amp; Support" Click="MenuItem_HelpSupportClick">
+                        <MenuItem.Icon>
+                            <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/OysterVPN;component/assets/help.png" />
+                        </MenuItem.Icon>
+                        <MenuItem  x:Name="MenuItemContactSupport" Header="Support Articles"  Click="MenuItem_ContactSupport_Click"/>
+                        <MenuItem  x:Name="MenuItem_IpAddressChecker" Header="IP Address Checker"  Click="MenuItem_IpAddressChecker_Click"/>
+                        <Separator/>
+                        <MenuItem  x:Name="MenuItem_DnsLeakTest" Header="DNS Leak Test"  Click="MenuItem_DnsLeakTest_Click"/>
+                        <MenuItem  x:Name="MenuItem_PasswordGenerator" Header="Password Generator"  Click="MenuItem_PasswordGenerator_Click"/>
+                        <!--<MenuItem  x:Name="MenuItem_Emailus" Header="Email Us" Click="MenuItem_Emailus_Click">
+                            <MenuItem.Icon>
+                                <Image  Source="/OysterVPN;component/assets/Group 7377.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>-->
+                        <MenuItem x:Name="MenuItem_AboutOysterVpn" Header="About OysterVPN"  Click="MenuItem_AboutOysterVpn_Click">
+                            <MenuItem.Icon>
+                                <Image  Source="/OysterVPN;component/assets/Group 7376.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                    </MenuItem>
+
+                    <MenuItem Header="Secure All Your Devices" Click="MenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/OysterVPN;component/assets/secure.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem   RenderOptions.BitmapScalingMode="HighQuality" x:Name="IsKillSwitch" Header="_Kill Switch" IsCheckable="True" Click="IsKillSwitch_Click">
+                        <MenuItem.Icon >
+                            <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/OysterVPN;component/assets/switch.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem  RenderOptions.BitmapScalingMode="HighQuality"  x:Name="SplitTunnel" Header="_Split Tunnel" Click="SplitTunnel_Click">
+                        <MenuItem.Icon >
+                            <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/OysterVPN;component/assets/split.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    
+                    <MenuItem  RenderOptions.BitmapScalingMode="HighQuality"  x:Name="MenuItem_Logout" Header="_Logout" Click="MenuItem_Logout_Click">
+                        <MenuItem.Icon >
+                            <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/OysterVPN;component/assets/logout.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    
+                    <MenuItem  RenderOptions.BitmapScalingMode="HighQuality"  x:Name="MenuItem_Quit" Header="_Quit" Click="MenuItem_Quit_Click">
+                        <MenuItem.Icon >
+                            <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/OysterVPN;component/assets/quit.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+
+        <Button  Style="{StaticResource MyButton}"  x:Name="btnConnectBlue" Height="120"  Margin="128,0,128,192" 
+    VerticalAlignment="Bottom" ClickMode="Press" BorderThickness="1" ClipToBounds="True" Padding="0" Click="btnConnectBlue_Click" Foreground="#FF025EB3" OverridesDefaultStyle="False" >
+            <Button.Background>
+                <ImageBrush  RenderOptions.BitmapScalingMode="HighQuality"  x:Name="imageBlueDisconnected" ImageSource="button-disconnected.png"/>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="12" ShadowDepth="12" Color="#FF0A6BC8" Opacity="0.3" RenderingBias="Quality"/>
+            </Button.Effect>
+
+            <!--<Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="25" ShadowDepth="30"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>-->
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="87"
+                                Height="87"
+                                CornerRadius="50"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+        <Button Visibility="Hidden"    x:Name="btnDisConnect" Height="120"  Margin="128,0,128,192" 
+    VerticalAlignment="Bottom" Opacity="0.99" ClickMode="Press" BorderThickness="1" ClipToBounds="True" Padding="0" Click="btnDisConnect_Click" >
+            <Button.Background>
+                <ImageBrush  x:Name="imageGreenConnected" ImageSource="button-connected-green.png"/>
+            </Button.Background>
+            <!--<Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="17" ShadowDepth="8" Color="#FF0A6BC8" RenderingBias="Quality" Opacity="0.2"/>
+            </Button.Effect>-->
+
+            <!--<Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="25" ShadowDepth="30"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>-->
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="87"
+                                Height="87"
+                                CornerRadius="50"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button  x:Name="btnConnect" Visibility="Hidden" Height="120"   Margin="128,0,128,192" 
+    VerticalAlignment="Bottom" Opacity="0.99" ClickMode="Press" BorderThickness="1" ClipToBounds="True" Padding="0" Click="btnConnect_Click" >
+            <Button.Background>
+                <ImageBrush x:Name="imageRedDisconnected"  ImageSource="button-dissconnect-red.png"/>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="17" ShadowDepth="12" Color="#FF0A6BC8" RenderingBias="Quality" Opacity="0.2"/>
+            </Button.Effect>
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="25" ShadowDepth="30"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="87"
+                                Height="87"
+                                CornerRadius="50"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+        <Button  Visibility="Hidden"  x:Name="btnConnectRed" Height="120"  Margin="128,0,128,192" 
+    VerticalAlignment="Bottom" Opacity="0.99" ClickMode="Release" BorderThickness="1" ClipToBounds="True" Padding="0" >
+            <Button.Background>
+                <ImageBrush ImageSource="button-dissconnect-red.png"/>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="17" ShadowDepth="8" Color="#FF0A6BC8" RenderingBias="Quality" Opacity="0.2"/>
+            </Button.Effect>
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="87"
+                                Height="87"
+                                CornerRadius="50"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Label Content="CLICK TO CONNECT"  Name="connect_label" Margin="34,384,34,0" VerticalAlignment="Top" FontFamily="{StaticResource PoppinsExtraBold}" Foreground="#FF025EB3" Height="30" HorizontalContentAlignment="Center" FontSize="14"/>
+        <Grid HorizontalAlignment="Left" Height="82" VerticalAlignment="Top" Width="374" Margin="10,414,-10,0">
+            <Button Cursor="Hand" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="296" Height="50" Click="Location_Button" BorderThickness="1" SnapsToDevicePixels="True" RenderTransformOrigin="0.5,0.5" BorderBrush="#FFECECEC" Background="White">
+
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+
+                <Label IsHitTestVisible="False" />
+
+            </Button>
+
+            <Label x:Name="currentLocation" IsHitTestVisible="False" Content="Current Location"  HorizontalContentAlignment="Left"  Width="180" VerticalAlignment="Top" Height="28" FontFamily="{StaticResource PoppinsMedium}" HorizontalAlignment="Left" Margin="104,20,0,0"/>
+            <Image Margin="53,22,288,34"  x:Name="countryFlagImage"  Stretch="Fill" >
+            </Image>
+
+            <!--<Ellipse Margin="56,22,292,34" >
+                <Ellipse.Fill>
+                    <ImageBrush  x:Name="countryFlagImage" ImageSource="fr.png" Stretch="Fill" />
+                </Ellipse.Fill>
+            </Ellipse>-->
+            <Ellipse Margin="292,25,62,37" >
+                <Ellipse.Fill>
+                    <ImageBrush RenderOptions.BitmapScalingMode="HighQuality"  x:Name="locationIcon" ImageSource="icon-location.png" Stretch="UniformToFill" TileMode="Tile" />
+                </Ellipse.Fill>
+            </Ellipse>
+
+
+        </Grid>
+
+        <!--<Grid Opacity="1" HorizontalAlignment="Left" Height="33" Margin="0,463,0,0" VerticalAlignment="Top" Width="374" ClipToBounds="True" Background="#FF027ACE" Panel.ZIndex="1">
+
+          
+        </Grid>-->
+
+
+        <Grid HorizontalAlignment="Left" Height="88" Margin="0,496,0,0" VerticalAlignment="Top" Width="374" ClipToBounds="True" Background="#FFF1F1F6">
+
+            <TextBlock Name="newsText" TextWrapping="WrapWithOverflow"  TextDecorations="None"  Text="Want to Verify you're connect to OysterVPN Secure  Network?" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,10,0,35" Height="43"  FontFamily="{StaticResource PoppinsRegular}"  FontSize="12" TextAlignment="Center" Width="359" />
+            <TextBlock  TextWrapping="WrapWithOverflow"  Margin="10,53,18,0"  VerticalAlignment="Top"   Width="346" Foreground="#FF005CB3" Cursor="Hand" FontFamily="{StaticResource PoppinsRegular}" Height="35" HorizontalAlignment="Center" TextDecorations="Underline" TextAlignment="Center">
+                   <Hyperlink NavigateUri="https://support.oystervpn.co/"  Name="newsLink" Click="newsLink_Click">
+                        <TextBlock Name="newsLinkText">support.oystervpn.co</TextBlock>
+                  </Hyperlink>
+            </TextBlock>
+        </Grid>
+
+
+    </Grid>
+
+
+
+
+</Window>
