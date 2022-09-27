@@ -4,7 +4,7 @@
   <description asmv2:iconFile="vpngreen.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="OysterVPN" version="1.0.0.0" publicKeyToken="13537B9740F71097" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="OysterVPN" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="OysterVPN.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -355,14 +355,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OysterVPN.exe" size="7156216">
-      <assemblyIdentity name="OysterVPN" version="1.0.0.0" publicKeyToken="13537B9740F71097" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OysterVPN.exe" size="7173624">
+      <assemblyIdentity name="OysterVPN" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HErVBGy0qsvWfVNSF2BKrQ0zzjRDOi21ZqiknLqtfog=</dsig:DigestValue>
+        <dsig:DigestValue>DHVLjoCQT5PvIIsl0cnfbekfB8E2NZHcknDd7IefMu4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

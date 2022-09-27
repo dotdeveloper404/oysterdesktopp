@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OysterVPN"
         mc:Ignorable="d"
         FontFamily="Poppins"
-        Title="Split Tunnel" Height="365.333" Width="310" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
+        Title="Split Tunneling" Height="365.333" Width="310" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
 
     <Window.Resources>
         <Style x:Key="MyButton" TargetType="Button">
@@ -35,7 +35,15 @@
 
         <Label Content="When Connected To Oyster VPN : " HorizontalAlignment="Left" Margin="20,22,0,0" VerticalAlignment="Top" Width="267"/>
         <TextBox TextWrapping="Wrap" AcceptsReturn="True" Name="SitesList" HorizontalAlignment="Left" Height="168" Margin="23,110,0,0"   VerticalAlignment="Top" Width="250"/>
-
+        <TextBlock  Text="Split Tunneling Only Works On TCP/UDP" Margin="20,282,22,44" RenderTransformOrigin="0.5,0.5" Foreground="#FFFF1111">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.023"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
         <Button Style="{StaticResource MyButton}"  x:Name="btnSave" Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="79,0,65,10" Content="Save"  BorderBrush="{x:Null}" Height="28" FontFamily="Poppins" Background="#FF01407D" ClickMode="Press" Foreground="White" Click="btnSave_Click">
             <Button.Effect>
                 <DropShadowEffect Direction="-112" ShadowDepth="3" Color="#FFDADADA" RenderingBias="Quality"/>

@@ -156,7 +156,7 @@
 
                 </PasswordBox>
 
-                <Button BorderThickness="0" Content="Login"  FontFamily="Poppins" Foreground="White" Margin="528,322,36,102" RenderTransformOrigin="0.5,0.5" Click="btnLogin"  >
+                <Button IsDefault="True"  BorderThickness="0" Content="Login"  FontFamily="Poppins" Foreground="White" Margin="528,322,36,102" RenderTransformOrigin="0.5,0.5" Click="btnLogin"  >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="20"/>
@@ -182,9 +182,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>-->
 
-                  
 
-                    <!--<Viewbox Name="LoginLoadingBar" Visibility="Visible"  Width="200" Height="200"
+
+                <!--<Viewbox Name="LoginLoadingBar" Visibility="Visible"  Width="200" Height="200"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" Margin="-56,-82,-58,-83" Grid.RowSpan="2">
                         <local:CircularProgressBar Height="301" Width="728" />

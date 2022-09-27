@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\New Design\New Design\Oyster\obj\Debug\
+C:\Oyster\oysterdesktopp\obj\Debug\
 OysterVPN
 none
 false
 DEBUG;TRACE
-C:\New Design\New Design\Oyster\App.xaml
+C:\Oyster\oysterdesktopp\App.xaml
 211643776346
-1464163226
+14-1822089862
 59-971518472
-17112663043
+171-1929078303
 CircularProgressBar.xaml;ForgotPassword.xaml;ForgotPasswordForm.xaml;Home.xaml;HomeScreen.xaml;HomeWindow.xaml;Login.xaml;LoginForm.xaml;LoginSplash.xaml;MainWindow.xaml;MessageBoxCustom.xaml;Options.xaml;SecureDevice.xaml;SettingsScreen.xaml;Signup.xaml;SignupForm.xaml;SpeedTest.xaml;SplashForm.xaml;SplitTunnel.xaml;testing.xaml;VpnLocations.xaml;
 
 False

@@ -355,14 +355,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OysterVPN.exe" size="7229944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OysterVPN.exe" size="7230456">
       <assemblyIdentity name="OysterVPN" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dLg8peR5zAYPlBHZ67Ul3cgrmsG4WuT6BTN4jxbAaU8=</dsig:DigestValue>
+        <dsig:DigestValue>xLQCixgxfFUeHt0NNAXOdC7Phx2B1G+5CrJOnqf0rv8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

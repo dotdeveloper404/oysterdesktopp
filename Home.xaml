@@ -265,7 +265,8 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <TabControl Background="#FFFDFDFD" x:Name="server_list_tab" Margin="0,0,10,36" BorderBrush="White" SelectionChanged="server_list_tab_SelectionChanged" Grid.RowSpan="2">
+                        <TabControl Background="#FFFDFDFD" x:Name="server_list_tab" Margin="0,0,10,36" BorderBrush="White"
+                                    Grid.RowSpan="2">
                             <TabControl.Resources>
                                 <Style TargetType="TabItem">
                                     <Setter Property="Template">
@@ -530,7 +531,9 @@
                                     </Grid>
 
                                     <ListView MaxHeight="360"   ScrollViewer.VerticalScrollBarVisibility="Visible"
-          ScrollViewer.CanContentScroll="True"    Margin="-10,-100,-11,0" x:Name="listViewRecomend" SelectionChanged="listViewRecomend_SelectionChanged">
+          ScrollViewer.CanContentScroll="True"    Margin="-10,-100,-11,0" x:Name="listViewRecomend" 
+                                            
+                                              >
 
 
                                         <ListView.View>
@@ -799,19 +802,28 @@
             </Grid>
             <!--Location End-->
             <!--Connect Screen Start -->
+
             <Grid HorizontalAlignment="Left" Height="561" Margin="457,10,0,0" VerticalAlignment="Top" Width="418">
 
-                <Canvas  Visibility="Hidden" x:Name="connectionPanel"  Panel.ZIndex="1" Background="#B2C1B8B8" Margin="0,0,0,507">
-                    <TextBlock TextWrapping="WrapWithOverflow"    Canvas.Left="33" Foreground="black" Height="24" Width="393" HorizontalAlignment="Left" TextDecorations="{x:Null}" VerticalAlignment="Center" TextAlignment="Center">Cannot detect internet connection. VPN may be unavailable</TextBlock>
-                    <Button Style="{StaticResource MyButton}" BorderThickness="0" Height="17" Width="22" Canvas.Left="19" Canvas.Top="2" Click="ConnectionPanelButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                <Canvas Background="#B2060606"  x:Name="connectionPanel"  Panel.ZIndex="1"  Margin="0,45,0,0" HorizontalAlignment="Center" Width="418" Height="39" VerticalAlignment="Top">
+                    <TextBlock TextWrapping="WrapWithOverflow"  Foreground="White"  Height="39" Width="312" HorizontalAlignment="Left" TextDecorations="{x:Null}" VerticalAlignment="Center" TextAlignment="Center" Canvas.Left="44">Cannot detect internet connection. VPN may be unavailable</TextBlock>
+                    <!--<Button Style="{StaticResource MyButton}" BorderThickness="0" Height="14" Width="16" Canvas.Left="10" Canvas.Top="2" Click="ConnectionPanelButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.242,0.434">
                         <Button.Background>
                             <ImageBrush  ImageSource="/OysterVPN;component/assets/quit.png"/>
                         </Button.Background>
-                    </Button>
+                    </Button>-->
+                    <Canvas.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Canvas.Resources>
+
+
                 </Canvas>
 
-                <Canvas  Visibility="Hidden" x:Name="updatePanel"  Panel.ZIndex="1"   Margin="0,0,0,520" Background="#B2060606">
-                    <TextBlock TextWrapping="WrapWithOverflow"    Canvas.Left="66" Canvas.Top="10" Foreground="White" Height="34" Width="202" HorizontalAlignment="Left" TextDecorations="{x:Null}" FontSize="10" VerticalAlignment="Top" TextAlignment="Right">A new version of OysterVPN is available</TextBlock>
+                <Canvas  x:Name="updatePanel"  Panel.ZIndex="1" Background="#B2060606" Margin="0,0,0,521">
+                    <TextBlock TextWrapping="WrapWithOverflow"    Canvas.Left="66" Canvas.Top="10" Foreground="White" Height="24" Width="202" HorizontalAlignment="Center" TextDecorations="{x:Null}" FontSize="10" VerticalAlignment="Top" TextAlignment="Right">A new version of OysterVPN is available</TextBlock>
                     <Button Cursor="Hand"  FontWeight="Light"  Canvas.Left="284" Canvas.Top="15" FontSize="8" Height="25" Width="69" Click="Button_Click" Foreground="Black" Margin="10,-6,0,0">
                         <Button.Template>
                             <ControlTemplate>
@@ -834,8 +846,6 @@
                     </Button>
 
                 </Canvas>
-
-
 
                 <Grid Margin="0,0,0,91">
                     <Grid.Background>
@@ -1189,7 +1199,7 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230" >
 
-                                <Menu Height="31" Width="33"   Name="SettingsMenu" Margin="10,7,0,0" VerticalAlignment="Top"  VerticalContentAlignment="Top" >
+                                <Menu  Height="31" Width="33"   Name="SettingsMenu" Margin="10,7,0,0" VerticalAlignment="Top"  VerticalContentAlignment="Top" >
 
                                     <Menu.Background>
                                         <ImageBrush  ImageSource="Assets/settings.png"

@@ -34,11 +34,27 @@ namespace OysterVPN
             InitializeComponent();
         }
 
-        private void btnLogin(object sender, RoutedEventArgs e)
-        { 
+        private async void btnLogin(object sender, RoutedEventArgs e)
+        {
+
+            if (txtEmailAddress.Text == "")
+            {
+                txtValidation.Text = "Enter Email Address";
+                return;
+            }
+            else if (txtPassword.Password == "")
+            {
+                txtValidation.Text = "Enter Password";
+                return;
+            }
+
+            loader.Visibility = Visibility.Visible;
+
+            await Task.Delay(5000);
 
             if (_Login())
             {
+
                 try
                 {
 
@@ -52,17 +68,15 @@ namespace OysterVPN
                 }
                 catch (Exception ex)
                 {
-                    ////HomeScreen home = new HomeScreen();
-                    //HomeWindow home = new HomeWindow();
-                    ////this.Close();
-                    //this.Hide();
-                    //this.Visibility = Visibility.Hidden;
-                    //LoginLoadingBar.Visibility = Visibility.Hidden;
-                    //home.ShowDialog();
+                    loader.Visibility = Visibility.Hidden;
+
+                    txtValidation.Text = "Error Occured While Login,Contact Administrator";// ex.Message + " "+ ex.InnerException.Message + "Error Occured While Login,Contact Administrator";
+
+                    ILog logger = log4net.LogManager.GetLogger("ErrorLog");
+                    logger.Error(ex.Message);
                 }
             }
         }
-
 
 
         private bool _Login()
@@ -70,17 +84,6 @@ namespace OysterVPN
 
             try
             {
-
-                if (txtEmailAddress.Text == "")
-                {
-                    txtValidation.Text = "Enter Email Address";
-                    return false;
-                }
-                else if (txtPassword.Password == "")
-                {
-                    txtValidation.Text = "Enter Password";
-                    return false;
-                }
 
                 loader.Visibility = Visibility.Visible;
 
@@ -258,12 +261,8 @@ namespace OysterVPN
             catch (Exception ex)
             {
 
-                loader.Visibility = Visibility.Hidden;
+                throw ex;
 
-                txtValidation.Text = "Error Occured While Login,Contact Administrator";// ex.Message + " "+ ex.InnerException.Message + "Error Occured While Login,Contact Administrator";
-
-                ILog logger = log4net.LogManager.GetLogger("ErrorLog");
-                logger.Error(ex.Message);
 
                 // var notificationManager = new NotificationManager();
 
@@ -292,7 +291,6 @@ namespace OysterVPN
 
             }
 
-            return false;
 
         }
 
