@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\VS-Repo\Oyster\obj\Release\
+C:\Oyster\oysterdesktopp\obj\Release\
 OysterVPN
 none
 false
 TRACE
-D:\VS-Repo\Oyster\App.xaml
-16-2141992972
-14114036644
-551606252916
-170-1723597634
-CircularProgressBar.xaml;ForgotPassword.xaml;HomeScreen.xaml;HomeWindow.xaml;Login.xaml;LoginSplash.xaml;MainWindow.xaml;MessageBoxCustom.xaml;Options.xaml;SecureDevice.xaml;Signup.xaml;SpeedTest.xaml;SplashForm.xaml;SplitTunnel.xaml;testing.xaml;VpnLocations.xaml;
+C:\Oyster\oysterdesktopp\App.xaml
+211643776346
+14-1822089862
+60584216516
+171-1920034271
+CircularProgressBar.xaml;ForgotPassword.xaml;ForgotPasswordForm.xaml;Home.xaml;HomeScreen.xaml;HomeWindow.xaml;Login.xaml;LoginForm.xaml;LoginSplash.xaml;MainWindow.xaml;MessageBoxCustom.xaml;Options.xaml;SecureDevice.xaml;SettingsScreen.xaml;Signup.xaml;SignupForm.xaml;SpeedTest.xaml;SplashForm.xaml;SplitTunnel.xaml;testing.xaml;VpnLocations.xaml;
 
-True
+False
 

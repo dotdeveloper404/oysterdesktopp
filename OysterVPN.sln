@@ -11,18 +11,25 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "OysterInstaller", "..\Oyste
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{735D20A2-9971-4BAE-BEAA-83D10B4E17DC}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{735D20A2-9971-4BAE-BEAA-83D10B4E17DC}.All|Any CPU.Build.0 = Release|Any CPU
 		{735D20A2-9971-4BAE-BEAA-83D10B4E17DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{735D20A2-9971-4BAE-BEAA-83D10B4E17DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{735D20A2-9971-4BAE-BEAA-83D10B4E17DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{735D20A2-9971-4BAE-BEAA-83D10B4E17DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7617A281-576A-4478-BFA7-44530AC2ED6C}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{7617A281-576A-4478-BFA7-44530AC2ED6C}.All|Any CPU.Build.0 = Release|Any CPU
 		{7617A281-576A-4478-BFA7-44530AC2ED6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7617A281-576A-4478-BFA7-44530AC2ED6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7617A281-576A-4478-BFA7-44530AC2ED6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7617A281-576A-4478-BFA7-44530AC2ED6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6522E3F-51A3-42C4-B64E-E8EE481EF0CF}.All|Any CPU.ActiveCfg = Release
+		{F6522E3F-51A3-42C4-B64E-E8EE481EF0CF}.All|Any CPU.Build.0 = Release
 		{F6522E3F-51A3-42C4-B64E-E8EE481EF0CF}.Debug|Any CPU.ActiveCfg = Debug
 		{F6522E3F-51A3-42C4-B64E-E8EE481EF0CF}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection

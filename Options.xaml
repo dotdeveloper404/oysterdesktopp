@@ -108,11 +108,11 @@
                     <CheckBox   Margin="10,46,204,184" x:Name="protocol_udp"  Content="UDP"  FontFamily="Poppins" Checked="protocol_udp_Checked"/>
 
 
-                    <Label Margin="25,52,224,184" Content="OysterVPN UDP" FontSize="10" FontFamily="Poppins"/>
+                    <Label Margin="25,52,157,184" Content="OysterVPN UDP" FontSize="10" FontFamily="Poppins"/>
 
                     <CheckBox    Margin="10,78,157,149"  x:Name="protocol_tcp" Content="TCP"  FontFamily="Poppins" Checked="protocol_tcp_Checked" />
 
-                    <Label Margin="25,84,224,149" Content="OysterVPN TCP" FontFamily="Poppins" FontSize="10"/>
+                    <Label Margin="25,84,192,149" Content="OysterVPN TCP" FontFamily="Poppins" FontSize="10"/>
 
                     <CheckBox  Margin="10,113,0,115"  x:Name="protocol_ikev" Content="IKEv2" FontFamily="Poppins" HorizontalAlignment="Left" Checked="protocol_ikev_Checked" Width="231"/>
 
@@ -121,8 +121,8 @@
 
                     <CheckBox  Margin="10,147,252,86"  x:Name="protocol_pptp"  FontFamily="Poppins" Content="PPTP" Checked="protocol_pptp_Checked"/>
 
-
                     <CheckBox   Content="L2TP"  x:Name="protocol_l2tp" FontFamily="Poppins" Margin="10,176,252,61" Checked="protocol_l2tp_Checked"/>
+                    <CheckBox  Visibility="Collapsed"  Content="WIREGUARD"  x:Name="protocol_wireguard" FontFamily="Poppins" Margin="10,205,204,33" Checked="protocol_wireguard_Checked"/>
 
 
 

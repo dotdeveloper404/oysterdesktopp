@@ -54,7 +54,8 @@
         public string flag
         {
             get =>
-                this.Flag.Replace(Settings.ApiAssetUrl, @"/OysterVPN;component/assets/");
+              this.Flag.Replace(Settings.ApiAssetUrl, "pack://application:,,,/assets/");
+                // this.Flag.Replace(Settings.ApiAssetUrl, @"/OysterVPN;component/assets/");
             set =>
                 this.Flag = value;
         }

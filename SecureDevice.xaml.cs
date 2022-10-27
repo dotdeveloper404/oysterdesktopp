@@ -31,7 +31,7 @@ namespace OysterVPN
         {
             try
             {
-                string navigateUri = Settings.SiteUrl + "download/";
+                string navigateUri = Settings.SiteUrl + "download/?utm_source=app&utm_medium=windows&utm_campaign=contact"; ;
 
                 Process.Start(new ProcessStartInfo(navigateUri));
             }

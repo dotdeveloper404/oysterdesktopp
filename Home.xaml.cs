@@ -13,10 +13,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -27,6 +29,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace OysterVPN
 {
@@ -49,7 +52,11 @@ namespace OysterVPN
         private static bool IsConnected = false;
         private static bool IsDisconnected = false;
         private static bool IsVpnAvailable = false;
+        private static bool IsConnecting = false;
 
+        private Stopwatch _stopWatch;
+        private Timer  _timer;
+        private const string _startTimeDisplay = "";
 
         static Host Host;
 
@@ -125,7 +132,7 @@ namespace OysterVPN
                     {
                         latitude = Settings.getCurrentLocation().Latitude;
                         longitude = Settings.getCurrentLocation().Longitude;
-                    }
+                    } 
                     foreach (var item in _servers.data)
                     {
                         double distance = SmartConnectDistance.distance(latitude, longitude, Convert.ToDouble(item.latitude), Convert.ToDouble(item.longitude), 'M');
@@ -293,8 +300,23 @@ namespace OysterVPN
 
             InitializeComponent();
 
+            timer.Text = _startTimeDisplay;
+
+            _stopWatch = new Stopwatch();
+            _timer = new Timer(1000);
+            _timer.Elapsed += OnTimerElapse;
+
             CallData();
         }
+
+        private void OnTimerElapse(object sender, ElapsedEventArgs e)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                timer.Text = _stopWatch.Elapsed.ToString(@"hh\:mm\:ss");
+            });
+        }
+ 
 
         private void CallData()
         {
@@ -307,7 +329,6 @@ namespace OysterVPN
                 NetworkChange.NetworkAvailabilityChanged +=
                   NetworkAvailabilityChanged;
 
-
                 if (Settings.getinternetKillSwitch() == true)
                 {
                     IsKillSwitch.IsChecked = true;
@@ -315,6 +336,7 @@ namespace OysterVPN
 
                 MinimizeToTray.Enable(this);
 
+             
                 Closing += OnClosing;
 
                 #region set current  location
@@ -325,7 +347,6 @@ namespace OysterVPN
                 var helper = new CountryHelper();
 
                 HttpClient client = new HttpClient();
-
 
                 #endregion
 
@@ -362,7 +383,6 @@ namespace OysterVPN
                     }
 
                     #endregion
-
 
                     #region get servers
                     Uri uri = new Uri(Settings.ApiUrl + "servers?orderby=id&orderdir=DESC");
@@ -413,7 +433,6 @@ namespace OysterVPN
 
                     }
 
-
                     Settings.setServers(servers.ToArray());
 
                     var serversList = Settings.getServers();
@@ -432,12 +451,9 @@ namespace OysterVPN
 
                     view2.Filter = UserFilter;
 
-
-
                     var shortestDistance = distances.Min();
                     var getShortestValue = servers.Where(x => x.Distance == shortestDistance).FirstOrDefault();
                     listViewSmart.Items.Add(getShortestValue);
-
 
                     #endregion
 
@@ -461,17 +477,27 @@ namespace OysterVPN
 
                         listViewRecent.ItemsSource = recentServer.ToList();
 
-
                     }
 
                     #endregion
-
 
                     currentLocationBlur.Text = Settings.getCurrentLocation().City + ", " + Settings.getCurrentLocation().Country;
                     currentLocation.Text = Settings.getCurrentLocation().City + ", " + Settings.getCurrentLocation().Country;
                     labelIpAddress.Text = Settings.getCurrentLocation().Ip;
 
                     connectionPanel.Visibility = Visibility.Hidden;
+
+                    string avatar = Settings.getAvatar().Replace("data:image/png;base64,","");
+
+                    byte[] binaryData = Convert.FromBase64String(avatar);
+
+                    BitmapImage bi = new BitmapImage();
+                    bi.BeginInit();
+                    bi.StreamSource = new MemoryStream(binaryData);
+                    bi.EndInit();
+
+                    UserAvatar.Source = bi;
+
                     //  Canvas.SetZIndex(connectionPanel, -1);
 
                     if (Settings.getServer() != null)
@@ -486,7 +512,7 @@ namespace OysterVPN
                     {
                         //  Settings.fetchSettings();
 
-                        var d = Settings.getLastServerUsed();
+                       // var d = Settings.getLastServerUsed();
                         countryFlagImageBlur.ImageSource = new BitmapImage(new Uri(Settings.getLastServerUsed().Flag));
                         countryFlagImage.ImageSource = new BitmapImage(new Uri(Settings.getLastServerUsed().Flag));
                         currentLocation.Text = Settings.getLastServerUsed().Name;
@@ -503,7 +529,6 @@ namespace OysterVPN
                     Uri news_uri = new Uri(Settings.ApiUrl + "news/device/windows");
                     var JsonNews = client.GetData(news_uri, Settings.AuthToken);
 
-
                     if (JsonNews != "")
                     {
                         dynamic _news = JObject.Parse(JsonNews);
@@ -518,7 +543,6 @@ namespace OysterVPN
 
                     Uri updateUri = new Uri(Settings.ApiUrl + "update_available");
                     var jsonUpdate = client.GetData(updateUri, Settings.AuthToken);
-
 
 
                     if (jsonUpdate != "")
@@ -543,7 +567,6 @@ namespace OysterVPN
                         if (isVpnConnected != null)
                         {
 
-
                             this.Dispatcher.Invoke(() =>
                             {
                                 connectionPanel.Visibility = Visibility.Hidden;
@@ -567,6 +590,12 @@ namespace OysterVPN
                                 this.btnConnect.Visibility = Visibility.Hidden;
                                 this.btnDisconnect.Visibility = Visibility.Visible;
                                 #endregion
+
+
+                                timer.Visibility = Visibility.Visible;
+                                _stopWatch.Start();
+                                _timer.Start();
+                             
 
                                 txtConnect.Text = "Connected";
 
@@ -611,24 +640,16 @@ namespace OysterVPN
                     connectionPanel.Visibility = Visibility.Visible;
                     //btnConnect.IsEnabled = false;
 
-                    //if (Settings.getServer() != null)
-                    //{
-                    //    countryFlagImage.ImageSource = new BitmapImage(new Uri(Settings.getServer().flag, UriKind.Relative));
-                    //    countryFlagImageBlur.ImageSource = new BitmapImage(new Uri(Settings.getServer().flag, UriKind.Relative));
-                    //    currentLocation.Text = Settings.getServer().Name;
-                    //    currentLocationBlur.Text = Settings.getServer().Name;
-                    //}
-                    //else if (Settings.getConnectLastUsedServer())
-                    //{
-                    //    countryFlagImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/assets/" + Settings.getLastServerUsed().Iso.ToLower().ToString() + ".png")); //new BitmapImage(new Uri(Settings.getLastServerUsed().flag, UriKind.Relative));
-                    //    countryFlagImageBlur.ImageSource = new BitmapImage(new Uri("pack://application:,,,/assets/" + Settings.getLastServerUsed().Iso.ToLower().ToString() + ".png")); //new BitmapImage(new Uri(Settings.getLastServerUsed().flag, UriKind.Relative));
-                    //    currentLocationBlur.Text = Settings.getLastServerUsed().Name;
-                    //}
-                    //else
-                    //{
-                    //    currentLocation.Text = "Select Server";
-                    //    currentLocationBlur.Text = "Select Server";
-                    //}
+                    string avatar = Settings.getAvatar().Replace("data:image/png;base64,", "");
+
+                    byte[] binaryData = Convert.FromBase64String(avatar);
+
+                    BitmapImage bi = new BitmapImage();
+                    bi.BeginInit();
+                    bi.StreamSource = new MemoryStream(binaryData);
+                    bi.EndInit();
+
+                    UserAvatar.Source = bi;
 
                     List<Server> servers = new List<Server>();
 
@@ -661,12 +682,39 @@ namespace OysterVPN
 
                     }
 
-                    listViewRecomend.ItemsSource = serversList.ToList();
+
+                    var asdsa = Settings.getServer().Flag;
+                    if (Settings.getServer() != null)
+                    {
+                        
+                        countryFlagImage.ImageSource = new BitmapImage(new Uri(Settings.getServer().Flag));
+                        currentLocation.Text = Settings.getServer().Name;
+
+                        countryFlagImageBlur.ImageSource = new BitmapImage(new Uri(Settings.getServer().Flag));
+                        currentLocationBlur.Text = Settings.getServer().Name;
+                    }
+                    else if (Settings.getConnectLastUsedServer())
+                    {
+                        //  Settings.fetchSettings();
+
+                      
+                        countryFlagImageBlur.ImageSource = new BitmapImage(new Uri(Settings.getLastServerUsed().Flag));
+                        countryFlagImage.ImageSource = new BitmapImage(new Uri(Settings.getLastServerUsed().Flag));
+                        currentLocation.Text = Settings.getLastServerUsed().Name;
+                        currentLocationBlur.Text = Settings.getLastServerUsed().Name;
+                    }
+                    else
+                    {
+                        currentLocation.Text = "Select Server";
+                        currentLocationBlur.Text = "Select Server";
+                    }
+
+                    listViewRecomend.ItemsSource = servers.ToList(); //serversList.ToList();
 
                     CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listViewRecomend.ItemsSource);
                     view.Filter = UserFilter;
 
-                    listViewAllLocations.ItemsSource = serversList.ToList();
+                    listViewAllLocations.ItemsSource = servers.ToList(); //serversList.ToList();
 
                     CollectionView view2 = (CollectionView)CollectionViewSource.GetDefaultView(listViewAllLocations.ItemsSource);
                     PropertyGroupDescription groupDescription = new PropertyGroupDescription("Continent");
@@ -804,13 +852,13 @@ namespace OysterVPN
                     return;
                 }
 
-
                 var item = sender as ListViewItem;
                 if (item != null && item.IsSelected)
                 {
 
                     Settings.setServer((Server)item.DataContext);
                     Settings.fetchSettings();
+                 // var d = Settings.getServer().Flag;
                     countryFlagImage.ImageSource = new BitmapImage(new Uri(Settings.getServer().Flag));
                     currentLocation.Text = Settings.getServer().Name; // Settings.getServer().City + " - " +  Settings.getServer().Country;
 
@@ -904,6 +952,14 @@ namespace OysterVPN
             try
             {
 
+                if(IsConnecting)
+                {
+                    btnDisconnect.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
+                     return;
+                }
+                //string directory = Path.GetDirectoryName(Storage.UserDataFolder);
+                //System.Windows.Forms.MessageBox.Show(directory);
+
                 Settings.fetchSettings();
                 if (Settings.getServer() == null)
                 {
@@ -916,7 +972,6 @@ namespace OysterVPN
                     System.Windows.Forms.MessageBox.Show("Internet Connection Not Available");
                     return;
                 }
-
                 gridLocationBlur.Visibility = Visibility.Collapsed;
                 oysterBlueLogoBlur.Visibility = Visibility.Collapsed;
 
@@ -927,6 +982,8 @@ namespace OysterVPN
 
                 btnConnect.Content = "Connecting...";
                 txtConnect.Text = "Connecting...";
+
+                IsConnecting = true;
 
                 // btnConnect.IsEnabled = false;
 
@@ -952,7 +1009,7 @@ namespace OysterVPN
                         IsConnected = OysterVpn.connect("PPTP", "", "", "");
                         break;
                     case "IKEV2":
-                        IsConnected = OysterVpn.connect("IKEV2", "", "", "");
+                       IsConnected = OysterVpn.connect("IKEV2", "", "", "");
                         break;
 
                     case "TCP":
@@ -960,6 +1017,9 @@ namespace OysterVPN
                         break;
                     case "UDP":
                         IsConnected = OysterVpn.connect("UDP", "ca2.ca", "udp.tls", Settings.getServer() == null ? "us-ny-01.serverintoshell.com 4443" : Settings.getServer().Dns + " " + Settings.getServer().Port);
+                        break;
+                    case "WIREGUARD":
+                        IsConnected = OysterVpn.connect("WIREGUARD", "", "", "");
                         break;
                 }
 
@@ -984,6 +1044,8 @@ namespace OysterVPN
                 if (IsConnected)
                 {
                     OysterVpn.ProtectDNSLeak();
+
+                    IsConnecting = false;
                 }
 
                 NetworkChange.NetworkAddressChanged +=
@@ -1026,6 +1088,7 @@ namespace OysterVPN
         private void NetworkAddressChanged(object sender, EventArgs e)
         {
 
+           
             #region Check if vpn connected or not  
             if (IsAvailableNetworkActive())
             {
@@ -1058,6 +1121,12 @@ namespace OysterVPN
                                 currentLocation.Text = Settings.getCurrentLocation().City + ", " + Settings.getCurrentLocation().Country;
                                 labelIpAddress.Text = Settings.getCurrentLocation().Ip;
 
+                                #region timer
+                                //_stopWatch.Stop();
+                                //_timer.Stop();
+                                //_stopWatch.Reset();
+                                #endregion
+
                                 ExtensionUserInfo.IsDisConnectVpnExtension = false;
                                 ExtensionUserInfo.IsConnectVpnExtension = false;
 
@@ -1088,6 +1157,12 @@ namespace OysterVPN
 
                                 txtConnect.Text = "Connected";
                                 btnConnect.Content = "CONNECT";
+
+                                #region timer
+                                timer.Visibility = Visibility.Visible;
+                                _stopWatch.Start();
+                                _timer.Start();
+                                #endregion
 
                                 btnConnect.IsEnabled = true;
 
@@ -1219,7 +1294,7 @@ namespace OysterVPN
 
                 IsConnected = false;
 
-                OysterVpn.ProtectDNSLeak();
+                OysterVpn.UnprotectDNSLeak();
 
                 #region visibility
 
@@ -1238,6 +1313,14 @@ namespace OysterVPN
                 this.btnDisconnect.Content = "DISCONNECT";
                 currentLocationBlur.Text = Settings.getCurrentLocation().City + ", " + Settings.getCurrentLocation().Country;
                 labelIpAddress.Text = Settings.getCurrentLocation().Ip;
+
+                #region timer
+                //_stopWatch.Stop();
+                //_timer.Stop();
+                _stopWatch.Reset();
+                timer.Visibility = Visibility.Collapsed;
+
+                #endregion
 
                 ExtensionUserInfo.IsDisConnectVpnExtension = false;
                 ExtensionUserInfo.IsConnectVpnExtension = false;
@@ -1264,16 +1347,23 @@ namespace OysterVPN
         private void OnClosing(object sender, CancelEventArgs cancelEventArgs)
         {
 
+            // setting cancel to true will cancel the close request
+            // so the application is not closed
+            cancelEventArgs.Cancel = true;
+            // this.Hide();
+            this.WindowState = WindowState.Minimized;
+            //base.OnClosing(cancelEventArgs);
+           
 
-            if (System.Windows.MessageBox.Show("Do you want to close this application?",
-            "Alert", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                Environment.Exit(Environment.ExitCode);
-            }
-            else
-            {
-                cancelEventArgs.Cancel = true;
-            }
+            //if (System.Windows.MessageBox.Show("Do you want to close this application?",
+            //"Alert", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            //{
+            //    Environment.Exit(Environment.ExitCode);
+            //}
+            //else
+            //{
+            //    cancelEventArgs.Cancel = true;
+            //}
 
 
         }
@@ -1389,22 +1479,48 @@ namespace OysterVPN
 
                     IsBlockedFirewall = true;
 
-                    this.Dispatcher.Invoke(() =>
-                    {
+                    //this.Dispatcher.Invoke(() =>
+                    //{
 
-                        IsDisconnected = true;
-                        IsConnected = false;
+                    //    IsDisconnected = true;
+                    //    IsConnected = false;
 
-                        txtConnect.Text = "Connecting";
-                        this.btnDisconnect.Content = "CONNECTING";
-                        greytDot.Visibility = Visibility.Visible;
-                        greenDot.Visibility = Visibility.Collapsed;
+                    //    txtConnect.Text = "Connecting";
+                    //    this.btnDisconnect.Content = "CONNECTING";
+                    //    greytDot.Visibility = Visibility.Visible;
+                    //    greenDot.Visibility = Visibility.Collapsed;
 
-                        AlreadyConnected = false;
+                    //    timer.Visibility = Visibility.Collapsed;
+                    //    _stopWatch.Reset();
+                    //    //_timer.Start();
 
-                    });
+                    //    AlreadyConnected = false;
+
+                    //});
 
                 }
+
+
+                this.Dispatcher.Invoke(() =>
+                {
+
+                    IsDisconnected = true;
+                    IsConnected = false;
+
+                    txtConnect.Text = "Connecting";
+                    this.btnDisconnect.Content = "CONNECTING";
+                    greytDot.Visibility = Visibility.Visible;
+                    greenDot.Visibility = Visibility.Collapsed;
+
+                    timer.Visibility = Visibility.Collapsed;
+                    _stopWatch.Reset();
+                    //_timer.Start();
+
+                    AlreadyConnected = false;
+
+                });
+
+
                 IsNetworkAvailable = false;
                 IsConnected = false;
             }
@@ -1522,7 +1638,7 @@ namespace OysterVPN
             {
 
                 //   await Task.Run(() => OysterVpn.disconnect());
-
+                OysterVpn.disconnect();
                 Environment.Exit(Environment.ExitCode);
 
             }
@@ -1661,7 +1777,6 @@ namespace OysterVPN
                 string navigateUri = Settings.SupportUrl + "?utm_source=app&utm_medium=windows&utm_campaign=contact";
                 Process.Start(new ProcessStartInfo(navigateUri));
             }
-
             catch (Exception ex)
             {
                 ILog logger = log4net.LogManager.GetLogger("ErrorLog");

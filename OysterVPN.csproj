@@ -78,9 +78,7 @@
   <PropertyGroup>
     <ApplicationIcon>vpngreen.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
@@ -510,6 +508,12 @@
     <Resource Include="assets\VPN-hero-image-resized.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="slider_3%401x.png" />
+    <Resource Include="slider_2%401x.png" />
+    <Resource Include="slider_1%402x.png" />
+    <Resource Include="slider_1%401x.png" />
+    <Resource Include="slide1.png" />
+    <Resource Include="Secure2x.png" />
     <Resource Include="search-magnify.png" />
     <Resource Include="vpnicon.png" />
     <Resource Include="secure.png" />
@@ -904,6 +908,7 @@
     <Resource Include="assets\green-dot.png" />
     <Resource Include="assets\grey-dot.png" />
     <Resource Include="assets\iconprotocol.png" />
+    <Resource Include="1key.png" />
     <Content Include="assets\ripplessvg.svg" />
     <Resource Include="assets\thunder.png" />
     <Resource Include="location.gif" />
@@ -928,6 +933,18 @@
     <Resource Include="grey-dot.png" />
     <Resource Include="oyster-blue-logo.png" />
     <Resource Include="assets\search-magnify.png" />
+    <Resource Include="Browsers.png" />
+    <Resource Include="avatar.png" />
+    <Resource Include="oystergreen.png" />
+    <Resource Include="Map%404x.png" />
+    <Resource Include="Map%403x.png" />
+    <Resource Include="Map%401x.png" />
+    <Resource Include="Map%402x.png" />
+    <Resource Include="bg%401x.png" />
+    <Resource Include="bg%403x.png" />
+    <Resource Include="bg%404x.png" />
+    <Resource Include="bg%402x.png" />
+    <Resource Include="bg1.png" />
     <Content Include="oysterwhite.svg" />
     <Resource Include="rightarrow.png" />
     <Resource Include="privacy.png" />

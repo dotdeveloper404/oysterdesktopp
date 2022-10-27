@@ -15,6 +15,7 @@
         public string Phone;
         public int UserType;
         public string IpAddress;
+        public string Avatar;
         
     }
 }

@@ -1,0 +1,1 @@
+"C:\Program Files\WireGuard\wireguard.exe" /installtunnelservice "C:\Users\Admin\Downloads\wqwg1.conf"

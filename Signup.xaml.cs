@@ -29,11 +29,13 @@ namespace OysterVPN
     /// </summary>
     public partial class Signup : Window
     {
+
+        int counter = 0;
         public Signup()
         {
             InitializeComponent();
 
-          Closing += OnClosing;
+             Closing += OnClosing;
 
         }
 
@@ -225,11 +227,13 @@ namespace OysterVPN
        
     
 
-    private void txtEmailAddress_TextChanged(object sender, TextChangedEventArgs e)
+         private void txtEmailAddress_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
+
+    
 
 
         private void BackToLogin_Click(object sender, RoutedEventArgs e)

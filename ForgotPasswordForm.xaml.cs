@@ -1,5 +1,10 @@
-﻿using System;
+﻿using App;
+using log4net;
+using Notifications.Wpf;
+using OysterVPNLibrary;
+using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,52 +43,80 @@ namespace OysterVPN
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (txtEmailAddress.Text == "")
+                {
+                    txtValidation.Text = "Enter Valid Email Address";
+                    return;
+                }
 
+                loader.Visibility = Visibility.Visible;
+                HttpClient client = new HttpClient();
+                NameValueCollection collection = new NameValueCollection();
+                collection.Add("email", txtEmailAddress.Text);
+
+                var data = client.PostData(Settings.ApiUrl + "password/forgot-password", collection);
+
+                System.Windows.MessageBox.Show("A temporary password has been sent to your email address.",
+                 "Success", MessageBoxButton.OK);
+
+                this.Close();
+
+                LoginForm login = new LoginForm();
+                login.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                loader.Visibility = Visibility.Collapsed;
+                txtValidation.Text = "Error Occured,Contact Support";
+
+                ILog logger = log4net.LogManager.GetLogger("ErrorLog");
+                logger.Error(ex.Message);
+
+                var notificationManager = new NotificationManager();
+
+                notificationManager.Show(new NotificationContent
+                {
+                    Title = "Error Occured",
+                    Message = ex.Message,
+                    Type = NotificationType.Error
+                });
+
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            if (counter == 4)
-            {
 
-                Slide2.Visibility = Visibility.Hidden;
-                Slide4.Visibility = Visibility.Hidden;
-                Slide1.Visibility = Visibility.Hidden;
 
-                Slide3.Visibility = Visibility.Visible;
-
-                counter--;
-            }
-            else if (counter == 3)
+            if (counter == 2)
             {
                 Slide1.Visibility = Visibility.Hidden;
                 Slide3.Visibility = Visibility.Hidden;
-                Slide4.Visibility = Visibility.Hidden;
-
-
                 Slide2.Visibility = Visibility.Visible;
 
                 counter--;
 
             }
-            else if (counter == 2)
+            else if (counter == 1)
             {
                 Slide1.Visibility = Visibility.Visible;
                 Slide2.Visibility = Visibility.Hidden;
-                Slide4.Visibility = Visibility.Hidden;
-
-
                 Slide3.Visibility = Visibility.Hidden;
 
-                counter--;
-
-            }
-            else
-            {
                 counter = 0;
                 btnBack.IsEnabled = false;
                 btnNext.IsEnabled = true;
+
             }
+            //else
+            //{
+            //    counter = 0;
+            //    btnBack.IsEnabled = false;
+            //    btnNext.IsEnabled = true;
+            //}
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
@@ -91,55 +124,28 @@ namespace OysterVPN
             if (counter == 0)
             {
 
-                Slide2.Visibility = Visibility.Hidden;
+                Slide2.Visibility = Visibility.Visible;
                 Slide3.Visibility = Visibility.Hidden;
-                Slide4.Visibility = Visibility.Hidden;
-
-                Slide1.Visibility = Visibility.Visible;
+                Slide1.Visibility = Visibility.Hidden;
 
                 counter++;
             }
             else if (counter == 1)
             {
                 Slide1.Visibility = Visibility.Hidden;
-                Slide3.Visibility = Visibility.Hidden;
-                Slide4.Visibility = Visibility.Hidden;
-
-
-                Slide2.Visibility = Visibility.Visible;
-
-                counter++;
-
-            }
-            else if (counter == 2)
-            {
-                Slide1.Visibility = Visibility.Hidden;
                 Slide2.Visibility = Visibility.Hidden;
-                Slide4.Visibility = Visibility.Hidden;
-
-
                 Slide3.Visibility = Visibility.Visible;
-
+             
                 counter++;
-
-            }
-            else if (counter == 3)
-            {
-                Slide1.Visibility = Visibility.Hidden;
-                Slide2.Visibility = Visibility.Hidden;
-                Slide3.Visibility = Visibility.Hidden;
-
-                Slide4.Visibility = Visibility.Visible;
-
-                counter++;
-
-            }
-            else
-            {
-                counter = 4;
                 btnNext.IsEnabled = false;
                 btnBack.IsEnabled = true;
             }
+            //else
+            //{
+            //    counter = 2;
+            //    btnNext.IsEnabled = false;
+            //    btnBack.IsEnabled = true;
+            //}
         }
     }
 }

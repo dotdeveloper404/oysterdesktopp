@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Threading;
 using DotRas;
-
 using System.IO; 
 using OysterVPNModel;
-
 using System.Net.NetworkInformation;
 using System.Diagnostics;
 using Microsoft.Win32;
@@ -18,6 +16,7 @@ using OysterVPNLibrary;
 using App;
 using log4net;
 using System.Management;
+using System.Web;
 
 namespace OysterVPN
 {
@@ -50,10 +49,16 @@ namespace OysterVPN
                     }.DialAsync();
                     break;
 
+                  
+
                 case "TCP":
                 case "UDP":
                      IsLogFileExist();
                  isConnect= ConfigOpenVpn(defaultProcotol, ca, tls, dns);
+                    break;
+
+                case "WIREGUARD":
+                    isConnect = ConfigureWireguard();
                     break;
             }
 
@@ -100,19 +105,15 @@ namespace OysterVPN
 
             entry.NetworkProtocols.IPv6 = false;
 
-
             if (protocol == "L2TP")
             {
-           
                 entry.Options.RequirePap  = true;
                 entry.Options.RequireMSChap2 = true;
                 entry.Options.RequireEncryptedPassword = false;
-
             }
-    
             
-                 entry.Options.RequireEncryptedPassword = false;
-                 entry.Options.RequireDataEncryption = false;
+              entry.Options.RequireEncryptedPassword = false;
+               entry.Options.RequireDataEncryption = false;
     
  
             // for split tunneling
@@ -140,12 +141,32 @@ namespace OysterVPN
         public static DispatcherTimer OpenVpnLogs { get; }
 
 
+        private static bool ConfigureWireguard()
+        {
+            string projectDirectory = Environment.CurrentDirectory;
+            ProcessStartInfo processInfo;
+            Process process;
+            //  processInfo = new ProcessStartInfo("cmd.exe", "/c " + "C:\\Program Files\\WireGuard\\wireguard.exe  /installtunnelservice C:\\Users\\Admin\\Downloads\\wqwg1.conf");
+            processInfo = new ProcessStartInfo(projectDirectory + "\\assets\\data\\oyster\\WG_Start.bat");
+
+            processInfo.CreateNoWindow = true;
+            processInfo.UseShellExecute = false;
+            // *** Redirect the output ***
+            processInfo.RedirectStandardError = true;
+            processInfo.RedirectStandardOutput = true;
+
+            process = Process.Start(processInfo);
+            process.WaitForExit();
+
+            return true;
+
+        }
+
+
         private static bool ConfigOpenVpn(string protocol, string ca, string tls, string dns)
         {
             try
             {
-
-              
 
                 string projectDirectory = Environment.CurrentDirectory;
            
@@ -194,7 +215,6 @@ namespace OysterVPN
                 //startInfo.Arguments = "--client " + sitesList + "--remote " + dns + " --proto " + protocol.ToLower() + " --comp-lzo --mssfix --persist-key --persist-tun --dev tun --auth SHA256 --auth-user-pass \"" + projectDirectory + "\\assets\\data\\oyster\\auth.txt\" --tls-client --ca \"" + projectDirectory + "\\assets\\data\\oyster\\" + ca + "\" --key-direction 1 --tls-auth \"" + projectDirectory + "\\assets\\data\\oyster\\" + tls + "\" --tls-cipher TLS-DHE-RSA-WITH-AES-256-GCM-SHA384:TLS-DHE-RSA-WITH-AES-256-CBC-SHA256:TLS-DHE-RSA-WITH-CAMELLIA-256-CBC-SHA:TLS-DHE-RSA-WITH-AES-256-CBC-SHA:TLS-RSA-WITH-CAMELLIA-256-CBC-SHA:TLS-RSA-WITH-AES-256-CBC-SHA --cipher AES-256-CBC --ping-timer-rem";
                
                 startInfo.Verb = "runas";
-
 
                 Settings.fetchSettings();
                 //  System.Windows.Forms.MessageBox.Show(Settings.getEmail());
@@ -393,10 +413,9 @@ namespace OysterVPN
 
         public static bool disconnect()
         {
-             IEnumerable<RasEntry> enumerable = from item in rasPhoneBook.Entries
+            IEnumerable<RasEntry> enumerable = from item in rasPhoneBook.Entries
                                                where item.Name.Contains(Settings.appName)
                                                select item;
-           
             DisconnectOpenVpn();
 
             foreach (RasConnection connection in RasConnection.GetActiveConnections())
@@ -686,7 +705,6 @@ namespace OysterVPN
 
             //}
         }
-
 
         private static void KillSwitchNow()
         {

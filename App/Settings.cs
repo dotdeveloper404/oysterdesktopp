@@ -51,6 +51,7 @@
         private static bool Remember = false;
         public static string defaultProtocol = "IKEV2";
         public static string Protocol = "";
+        public static string Avatar = "";
         public static bool launchStartup = false;
         public static bool StartVpnMinimize = false;
         public static bool ConnectLastUsedServer = false;
@@ -99,6 +100,7 @@
                 Token = info.GetString("static.Token");
                 UserId = info.GetInt32("static.UserId");
                 Protocol = info.GetString("static.Protocol");
+                Avatar = info.GetString("static.Avatar");
             //  Servers = (OysterVPNModel.Server[])info.GetValue("static.Servers", typeof(OysterVPNModel.Server[]));
             //Remember = info.GetBoolean("static.Remember");
             //defaultProtocol = info.GetString("static.defaultProtocol");
@@ -113,7 +115,8 @@
                 Server = (OysterVPNModel.Server)info.GetValue("static.Server", typeof(OysterVPNModel.Server));
                 LastUsedServer = (OysterVPNModel.Server)info.GetValue("static.LastUsedServer", typeof(OysterVPNModel.Server));
                 CurrentLocation = (OysterVPNModel.CurrentLocation)info.GetValue("static.CurrentLocation", typeof(OysterVPNModel.CurrentLocation));
-                //lastServerFetched = new DateTime?((DateTime)info.GetValue("static.lastServerFetched", typeof(DateTime)));
+                Servers = (Server[])info.GetValue("static.Servers", typeof(Array));  
+            //lastServerFetched = new DateTime?((DateTime)info.GetValue("static.lastServerFetched", typeof(DateTime)));
                 //loggedin = info.GetBoolean("static.loggedin");
                 //redialAutomatically = info.GetBoolean("static.redialAutomatically");
                 //autoconnect = info.GetBoolean("static.autoconnect");
@@ -206,55 +209,6 @@
             }
         }
 
-        //[AsyncStateMachine(typeof(<checkupdates>d__43)), DebuggerStepThrough]
-        //public static Task checkupdates(Version curVersion)
-        //{
-        //    <checkupdates>d__43 stateMachine = new <checkupdates>d__43 {
-        //        curVersion = curVersion,
-        //        <>t__builder = AsyncTaskMethodBuilder.Create(),
-        //        <>1__state = -1
-        //    };
-        //    stateMachine.<>t__builder.Start<<checkupdates>d__43>(ref stateMachine);
-        //    return stateMachine.<>t__builder.Task;
-        //}
-
-        //public static void closeInternet()
-        //{
-        //    try
-        //    {
-        //        client.closeInternet();
-        //    }
-        //    catch
-        //    {
-        //        client = new FVPNServiceClient();
-        //        client.closeInternet();
-        //    }
-        //}
-
-        //public static void closetcpudp()
-        //{
-        //    try
-        //    {
-        //        client.closetcpudp();
-        //    }
-        //    catch
-        //    {
-        //        client = new FVPNServiceClient();
-        //        client.closetcpudp();
-        //    }
-        //}
-
-        //[AsyncStateMachine(typeof(<fetchservers>d__77)), DebuggerStepThrough]
-        //public static Task<bool> fetchservers()
-        //{
-        //    <fetchservers>d__77 stateMachine = new <fetchservers>d__77 {
-        //        <>t__builder = AsyncTaskMethodBuilder<bool>.Create(),
-        //        <>1__state = -1
-        //    };
-        //    stateMachine.<>t__builder.Start<<fetchservers>d__77>(ref stateMachine);
-        //    return stateMachine.<>t__builder.Task;
-        //}
-
         public static bool fetchSettings() =>
             BinaryDeSerialize();
 
@@ -293,7 +247,7 @@
 
         //public static string getServerAddress()
         //{
-        //    "us-cf-ike-01.jumptoserver.com"
+        //    "us-sd-sd-01.sd.com"
         //}
 
         public static bool getdisconnectonExit() =>
@@ -320,7 +274,6 @@
         public static string getToken() =>
          Security.Decrypt(Token);
 
-
         public static List<NetworkInterfaceCard> getNetworkCard() =>
             NetworkCards;
 
@@ -333,6 +286,7 @@
             info.AddValue("static.Phone", Phone, typeof(string));
             info.AddValue("static.Token", Token, typeof(string));
             info.AddValue("static.Protocol", Protocol, typeof(string));
+            info.AddValue("static.Avatar", Avatar, typeof(string));
             info.AddValue("static.UserId", UserId, typeof(int));
             //info.AddValue("static.Servers", Servers, typeof(OysterVPNModel.Server[]));
             //info.AddValue("static.Remember", Remember, typeof(bool));
@@ -345,10 +299,10 @@
             info.AddValue("static.SitesUseVpn", SitesUseVpn, typeof(bool));
             info.AddValue("static.SitesDontUseVpn", SitesDontUseVpn, typeof(bool));
             info.AddValue("static.SplitTunnelSitesList", SplitTunnelSitesList, typeof(List<string>));
-      
             info.AddValue("static.Server", Server, typeof(OysterVPNModel.Server));
             info.AddValue("static.LastUsedServer", LastUsedServer, typeof(OysterVPNModel.Server));
             info.AddValue("static.CurrentLocation", CurrentLocation, typeof(OysterVPNModel.CurrentLocation));
+            info.AddValue("static.Servers", Servers, typeof(Array));
             //info.AddValue("static.lastServerFetched", lastServerFetched, typeof(DateTime));
             //info.AddValue("static.loggedin", loggedin, typeof(bool));
             //info.AddValue("static.redialAutomatically", redialAutomatically, typeof(bool));
@@ -376,6 +330,8 @@
         public static Product getProduct() =>
             product;
 
+        public static string getAvatar() =>
+             Security.Decrypt(Avatar);
 
         public static bool getStartVpnMinimize () =>
            StartVpnMinimize;
@@ -426,19 +382,6 @@
         public static string getsettingFilePath() =>
             Storage.UserDataFolder + @"\" + SettingPath;
 
-        //[AsyncStateMachine(typeof(< init > d__76)), DebuggerStepThrough]
-        //public static Task<bool> init()
-        //{
-        //    < init > d__76 stateMachine = new < init > d__76 {
-        //        <> t__builder = AsyncTaskMethodBuilder<bool>.Create(),
-        //        <> 1__state = -1
-        //          };
-        //    stateMachine.<> t__builder.Start << init > d__76 > (ref stateMachine);
-        //    return stateMachine.<> t__builder.Task;
-        //}
-
-       
-
 
         public static bool isTapDriverInstalled()
         {
@@ -458,16 +401,24 @@
             {
             }
             return flag;
-        }
-
-      
+        }     
 
         public static void netsh(string command)
         {
             try
             {
-                Process.Start("cmd", "/C" + command + "");
 
+                ProcessStartInfo startInfo = new ProcessStartInfo("cmd.exe");
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+                Process.Start(startInfo);
+
+                startInfo.Arguments = "/C" + command + "";
+
+                Process.Start(startInfo);
+
+              //  Process.Start("cmd", "/C" + command + "");
+                
                 //client.netsh(command);
             }
             catch
@@ -476,44 +427,6 @@
             }
         }
 
-        //public static void openInternet()
-        //{
-        //    try
-        //    {
-        //        client.openInternet();
-        //    }
-        //    catch
-        //    {
-        //        client = new FVPNServiceClient();
-        //        client.openInternet();
-        //    }
-        //}
-
-        //public static void opentcpudp()
-        //{
-        //    try
-        //    {
-        //        client.opentcpudp();
-        //    }
-        //    catch
-        //    {
-        //        client = new FVPNServiceClient();
-        //        client.opentcpudp();
-        //    }
-        //}
-
-        //public static void openVPN()
-        //{
-        //    try
-        //    {
-        //        client.openVPN();
-        //    }
-        //    catch
-        //    {
-        //        client = new FVPNServiceClient();
-        //        openVPN();
-        //    }
-        //}
 
         public static void openvpnCredentialscheck()
         {
@@ -618,6 +531,12 @@
         public static void setPhone(string Phone)
         {
             Settings.Phone = Security.Encrypt(Phone);
+            saveSettings();
+        }
+
+        public static void setAvatar(string Avatar)
+        {
+            Settings.Avatar = Security.Encrypt(Avatar);
             saveSettings();
         }
 

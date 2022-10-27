@@ -3,25 +3,65 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:svgc1="http://sharpvectors.codeplex.com/svgc/"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-         xmlns:local="clr-namespace:OysterVPN"
+         xmlns:WpfTest="clr-namespace:OysterVPN"
         Height="500" Width="880"
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Topmost="True" >
 
 
     <Window.Resources>
 
+        <Style x:Key="{x:Type PasswordBox}"
+        TargetType="{x:Type PasswordBox}">
+            <Setter Property="WpfTest:PasswordBoxMonitor.IsMonitoring"
+              Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Border Name="Bd"
+                    Background="{TemplateBinding Background}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    SnapsToDevicePixels="true" CornerRadius="20,20,20,20">
+                            <Grid>
+                                <ScrollViewer x:Name="PART_ContentHost"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                <TextBlock Text="Enter your password" 
+                           Margin="11,8,0,0"
+                           Foreground="Gray" 
+                           Visibility="Collapsed"
+                           Name="txtPrompt" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled"
+                                         Value="false">
+                                <Setter TargetName="Bd"
+                                            Property="Background"
+                                            Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground"
+                                            Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="WpfTest:PasswordBoxMonitor.PasswordLength" Value="0">
+                                <Setter Property="Visibility" TargetName="txtPrompt" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
                         <Grid>
-                            <Border Background="White" BorderBrush="#FF7D8683" BorderThickness="1"/>
+                            <Border Background="White" BorderBrush="#FFEAEAEA" BorderThickness="1"/>
                             <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
                             <Label Margin="15,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
-                           Visibility="Collapsed" Foreground="Gray" FontFamily="Arial"/>
+                           Visibility="Collapsed" Foreground="Gray" FontFamily="Poppins"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <MultiTrigger>
@@ -31,7 +71,7 @@
                                 <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
                             </MultiTrigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Foreground" Value="DimGray"/>
+                                <Setter Property="Foreground" Value="#FFEAEAEA"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -88,16 +128,16 @@
 
     <Grid>
 
-
-        <svgc1:SvgViewbox  OptimizePath="False" TextAsGeometry="True" Source="oysergreen.svg"  HorizontalAlignment="Center" VerticalAlignment="Center"   Width="145" Margin="584,51,132,366" Height="34"/>
-
+        <svgc:SvgViewbox  OptimizePath="False" TextAsGeometry="True" Source="oysergreen.svg"  HorizontalAlignment="Center" VerticalAlignment="Center"   Width="145" Margin="584,51,132,366" Height="34"/>
+        <!--<Image Source="/oystergreen.png" Margin="598,51,154,384"/>-->
+        
         <StackPanel Visibility="Visible"    x:Name="Slid1" Margin="10,10,14,0" Grid.ColumnSpan="2">
 
             <Grid Height="460">
-
-
+                
                 <TextBox   Style="{StaticResource MyWaterMarkStyle}"
-                Tag="info@example.com" Padding="12,0,0,0" VerticalContentAlignment="Center"  Name="txtEmailAddress" HorizontalAlignment="Left" Height="42" Margin="517,117,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="297" FontFamily="Poppins" BorderBrush="#FFEAEAEA" BorderThickness="1"  >
+                Tag="info@example.com" Padding="12,0,0,0" VerticalContentAlignment="Center"  Name="txtEmailAddress" HorizontalAlignment="Left" Height="42" Margin="517,117,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="297" FontFamily="Poppins" 
+                           BorderBrush="#FFEAEAEA" BorderThickness="0.1"  >
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="20"/>
@@ -127,7 +167,6 @@
                         </Style>
                     </TextBox.Resources>
 
-
                     <!--<TextBox.Effect>
                         <DropShadowEffect ShadowDepth="2"
                           Direction="256"
@@ -136,24 +175,72 @@
                           BlurRadius="4"
                            />
                     </TextBox.Effect>-->
-
                 </TextBox>
 
-
-                <PasswordBox Padding="12,0,0,0"  
-       Template="{StaticResource passwordbox}" VerticalContentAlignment="Center"  PasswordChar="*"  x:Name="txtPassword" HorizontalAlignment="Left" Height="42" Margin="517,183,0,0"  VerticalAlignment="Top" Width="297" FontFamily="Poppins" BorderBrush="#FF0080FF" BorderThickness="1" Foreground="DarkGray">
-                    <PasswordBox.Resources>
-
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="20"/>
+                <PasswordBox  Padding="12,0,0,0" VerticalContentAlignment="Center"  PasswordChar="*"   x:Name="txtPassword" HorizontalAlignment="Left" Height="42" Margin="517,175,0,0"  VerticalAlignment="Top" Width="297" FontFamily="Poppins" BorderBrush="#FFD4D7DA" BorderThickness="1" Foreground="DarkGray">
+                    <PasswordBox.Style>
+                        <Style 
+        TargetType="{x:Type PasswordBox}">
+                            <Setter Property="WpfTest:PasswordBoxMonitor.IsMonitoring"
+              Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                                        <Border Name="Bd"
+                    Background="{TemplateBinding Background}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    SnapsToDevicePixels="true" CornerRadius="20,20,20,20">
+                                            <Grid>
+                                                <ScrollViewer x:Name="PART_ContentHost"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                <TextBlock Text="Enter your password" 
+                           Margin="17,8,0,0"
+                           Foreground="Gray" 
+                           Visibility="Collapsed"
+                           Name="txtPrompt" />
+                                            </Grid>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsEnabled"
+                                         Value="false">
+                                                <Setter TargetName="Bd"
+                                            Property="Background"
+                                            Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                                <Setter Property="Foreground"
+                                            Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                            </Trigger>
+                                            <Trigger Property="WpfTest:PasswordBoxMonitor.PasswordLength" Value="0">
+                                                <Setter Property="Visibility" TargetName="txtPrompt" Value="Visible"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
-
-
-
-                    </PasswordBox.Resources>
-
-
-
+                    </PasswordBox.Style>
+                    <!--<PasswordBox.Style>
+                        <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type PasswordBox}">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Confirm Password" Foreground="Gray" Padding="8"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Password}" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </DataTrigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </PasswordBox.Style>-->
+                    <!--<PasswordBox.Template>
+                        <StaticResource ResourceKey="passwordbox"/>
+                    </PasswordBox.Template>-->
                 </PasswordBox>
 
                 <Button IsDefault="True"  BorderThickness="0" Content="Login"  FontFamily="Poppins" Foreground="White" Margin="528,322,36,102" RenderTransformOrigin="0.5,0.5" Click="btnLogin"  >
@@ -168,7 +255,6 @@
                             <GradientStop Color="#FF005CB3" Offset="0.2"/>
                         </LinearGradientBrush>
                     </Button.Background>
-
 
                     <Button.Style>
                         <StaticResource ResourceKey="MyButton"/>
@@ -197,31 +283,20 @@
                         VerticalAlignment="Top" Width="147"  Background="Transparent" BorderBrush="Transparent" Height="21" FontFamily="Poppins" Foreground="#FF0065C4" RenderTransformOrigin="0.887,0.46" Click="btnForgot_Click"/>
 
 
-
                 <Line  X2="0" Y2="600"    Stroke="#FFDAD8D8"  StrokeThickness="4" Margin="424,-8,422,1" />
 
                 <Grid HorizontalAlignment="Left" Height="440" Margin="10,10,0,0" VerticalAlignment="Top" Width="396">
-
                     <StackPanel Name="Slide1" Margin="23,21,30,57">
-                        <Image Height="264" Source="loginslide1.png" Stretch="None"/>
+                        <Image Height="264" Source="/slider_1@1x.png" Stretch="None"/>
                         <TextBlock TextWrapping="Wrap" Height="42" Margin="0,0,26,0" FontFamily="/OysterVPN;component/assets/fonts/Poppins/#Poppins" VerticalAlignment="Center" Text="1Go anonymous to secure your privacy and to  protecting your precious data online" HorizontalAlignment="Right" Width="270"/>
                     </StackPanel>
-
                     <StackPanel Visibility="Hidden" Name="Slide2" Margin="23,21,30,57">
-                        <Image Height="264" Source="signupslide1.png" Stretch="None"/>
+                        <Image Height="264" Source="/slider_2@1x.png" Stretch="None"/>
                         <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Height="40" Margin="31,0,32,0" Width="280" FontFamily="/OysterVPN;component/assets/fonts/Poppins/#Poppins" VerticalAlignment="Center" Text="2Go anonymous to secure your privacy and to  protecting your precious data online"/>
-
                     </StackPanel>
-
                     <StackPanel Visibility="Hidden" Name="Slide3" Margin="23,21,30,57">
-                        <Image Height="264" Source="signupslide1.png" Stretch="None"/>
+                        <Image Height="264" Source="/slider_3@1x.png" Stretch="None"/>
                         <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Height="40" Margin="31,0,32,0" Width="280" FontFamily="/OysterVPN;component/assets/fonts/Poppins/#Poppins" VerticalAlignment="Center" Text="3Go anonymous to secure your privacy and to  protecting your precious data online"/>
-
-                    </StackPanel>
-
-                    <StackPanel Visibility="Hidden" Name="Slide4" Margin="23,21,30,57">
-                        <Image Height="264" Source="signupslide1.png" Stretch="None"/>
-                        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Height="40" Margin="31,0,32,0" Width="280" FontFamily="/OysterVPN;component/assets/fonts/Poppins/#Poppins" VerticalAlignment="Center" Text="4Go anonymous to secure your privacy and to  protecting your precious data online"/>
 
                     </StackPanel>
 
@@ -243,10 +318,6 @@
                             <ImageBrush ImageSource="leftarrow.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-
-
-
-
 
                 </Grid>
                 <TextBlock Name="txtValidation"  HorizontalAlignment="Left" Margin="528,238,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="286" Foreground="#FFDE1A1A"/>

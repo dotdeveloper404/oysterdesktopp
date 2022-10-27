@@ -37,8 +37,6 @@ namespace OysterVPN
         static Host Host;
 
 
-        //readonly static string[] AllowedOrigins = new string[] { "chrome-extension://clopahnedcaapecinoalaagdljhfiflh" };
-        //readonly static string Description = "OysterVPN Chrome Server Extension";
         private const int MINIMUM_SPLASH_TIME = 1500; // Miliseconds  
 
         private Mutex _mutex;
@@ -47,123 +45,10 @@ namespace OysterVPN
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool SetForegroundWindow(IntPtr hWnd);
 
-
-        #region
-          /*
-        private System.Windows.Forms.NotifyIcon _notifyIcon;
-        private bool _isExit;
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
-            MainWindow = new MainWindow();
-            MainWindow.Closing += MainWindow_Closing;
-
-            _notifyIcon = new System.Windows.Forms.NotifyIcon();
-            _notifyIcon.DoubleClick += (s, args) => ShowMainWindow();
-             _notifyIcon.Icon = Icon.ExtractAssociatedIcon(Assembly.GetEntryAssembly().Location); //OysterWPF.Properties.Resources.MyIcon;
-            _notifyIcon.Visible = true;
-
-            CreateContextMenu();
-        }
-
-        private void CreateContextMenu()
-        {
-            _notifyIcon.ContextMenuStrip =
-              new System.Windows.Forms.ContextMenuStrip();
-            _notifyIcon.ContextMenuStrip.Items.Add("MainWindow...").Click += (s, e) => ShowMainWindow();
-            _notifyIcon.ContextMenuStrip.Items.Add("Exit").Click += (s, e) => ExitApplication();
-        }
-
-        private void ExitApplication()
-        {
-            _isExit = true;
-            MainWindow.Close();
-            _notifyIcon.Dispose();
-            _notifyIcon = null;
-        }
-
-        private void ShowMainWindow()
-        {
-            if (MainWindow.IsVisible)
-            {
-                if (MainWindow.WindowState == WindowState.Minimized)
-                {
-                    MainWindow.WindowState = WindowState.Normal;
-                }
-                MainWindow.Activate();
-            }
-            else
-            {
-                MainWindow.Show();
-            }
-        }
-
-        private void MainWindow_Closing(object sender, CancelEventArgs e)
-        {
-            if (!_isExit)
-            {
-                e.Cancel = true;
-                MainWindow.Hide(); // A hidden window can be shown again, a closed one not
-            }
-        }
-          */
-        #endregion
-
         public App()
         {
-         
-            //remove internet block
-           // INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(
-           //Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
-           // firewallPolicy.Rules.Remove("OysterVPN Block Internet");
-
             string Value = string.Empty;
-         //   var t = GetCookie_Chrome("com.oystertech.vpn", "1",ref  Value);
-       //    // System.Windows.Forms.MessageBox.Show(t.ToString());
-
             Log.Active = true;
-
-            Host = new MyHost();
-            Host.SupportedBrowsers.Add(ChromiumBrowser.GoogleChrome);
-            Host.SupportedBrowsers.Add(ChromiumBrowser.MicrosoftEdge);
-            Host.SupportedBrowsers.Add(ChromiumBrowser.Mozilla);
-
-            if (!Host.IsRegistered())
-            {
-                Host.Register();
-            }
-            //var threads = new List<Thread>();
-            //var thread = threads.FirstOrDefault(x => x.Name == "ExtensionThread");
-
-            //if (thread != null) { thread.Abort(); }
-
-            Thread backgroundThread = new Thread(new ThreadStart(Host.Listen));
-            backgroundThread.Priority = ThreadPriority.Highest;
-            backgroundThread.Name = "ExtensionThread";
-            backgroundThread.Start();
-
-            //TimeSpan interval = new TimeSpan(0, 0, 2);
-            //Thread.Sleep(interval);
-             
-
-           // Log.LogMessage("Extension Class Variables : " + "IsConnectVpnExtension" + ExtensionUserInfo.IsConnectVpnExtension + "IsDisConnectVpnExtension" + ExtensionUserInfo.IsDisConnectVpnExtension)
-
-
-            #region check chrome extension login button pressed
-            //System.Windows.Forms.MessageBox.Show(ExtensionUserInfo.IsDisConnectVpnExtension.ToString());
-            //if (ExtensionUserInfo.IsDisConnectVpnExtension == true)
-            //{
-            //    HomeScreen home = new HomeScreen();
-            //    System.Windows.Forms.MessageBox.Show("Test");
-            //    System.Windows.Forms.MessageBox.Show(home.btnDisConnect.Content.ToString());
-            //    home.btnDisConnect.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
-            //}
-            #endregion
-
-
-            //  ExtensionUserInfo.DisConnectedChanged += CheckConnectionChrome;
-
         }
 
         private void ApplicationStart(object sender, StartupEventArgs e)
@@ -198,16 +83,13 @@ namespace OysterVPN
                   //check auth token
 
                     if (Settings.fetchSettings()) {
-                    Settings.AuthToken = Settings.getToken();
+                     Settings.AuthToken = Settings.getToken();
 
                     if (Settings.AuthToken != null && Settings.AuthToken != "")
                     {
 
                         Home h = new Home();
                         h.ShowDialog();
-
-                       // HomeWindow w = new HomeWindow();
-                    ///    w.ShowDialog();
 
                         return;
                     }
@@ -228,15 +110,9 @@ namespace OysterVPN
                     //to create and show the main window
                     this.Dispatcher.Invoke(() =>
                     {
-                        //initialize the main window, set it as the application main window
-                        //and close the splash screen
-                        //var mainWindow = new Login();
-                        //this.MainWindow = mainWindow;
                         splashScreen.Hide();
                         LoginSplash splash = new LoginSplash();
                         splash.ShowDialog();
-                        //Login login = new Login();
-                        //login.ShowDialog();
                         
                     });
                 });
@@ -246,38 +122,6 @@ namespace OysterVPN
 
             }
 
-            //if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
-            //{
-            //    return;
-            //}
-
-
-            // Determine if login was successful
-            //if (Settings.getLoggedin() == true)
-            //{
-            //    HomeScreen home = new HomeScreen();
-
-            //    home.ShowDialog();
-
-            //}
-            //else
-            //{
-
-            //    Window login = new Login();
-            //    login.ShowDialog();
-
-            //}
-
-
-            // Window loginSplash = new LoginSplash();
-            //  loginSplash.ShowDialog();
-
-         //   Login login = new Login();
-           // login.ShowDialog();
-            //HomeWindow w = new HomeWindow();
-            // w.ShowDialog();
-
-          
 
         }
 
@@ -310,21 +154,8 @@ namespace OysterVPN
 
                   HomeScreen home = new HomeScreen();
 
-                    System.Windows.Forms.MessageBox.Show("asdsadsa");
-                    //System.Windows.Forms.MessageBox.Show(home.connect_label.ToString());
-                    //System.Windows.Forms.MessageBox.Show(home.btnConnect.ToString());
-                    //System.Windows.Forms.MessageBox.Show(home.btnConnect.Visibility.ToString());
-
-                    //home.btnDisConnect.Visibility = Visibility.Hidden;
-                    //home.btnConnect.Visibility = Visibility.Visible;
-                    //System.Windows.Forms.MessageBox.Show(home.btnDisConnect.Visibility.ToString());
-                    //home.btnDisConnect.Visibility = Visibility.Hidden;
-                    //home.btnConnect.Visibility = Visibility.Visible;
-                    //home.connect_label.Content = "Disconnected";
-                    ///  HomeScreen d = new HomeScreen();
-
-                    //System.Windows.Forms.MessageBox.Show(home.btnConnect.ToString());
-                     home.btnDisConnect.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
+                  //System.Windows.Forms.MessageBox.Show(home.btnConnect.ToString());
+                 home.btnDisConnect.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
                 }
             }
             catch (Exception ex)

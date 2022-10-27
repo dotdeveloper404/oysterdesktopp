@@ -7,16 +7,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OysterVPN"
         mc:Ignorable="d"
-          FontFamily="{StaticResource PoppinsMedium}" 
+        FontFamily="{StaticResource PoppinsMedium}" 
         Title="OysterVPN" 
         Height="600" 
         Width="881"
-        Topmost="True"
-         WindowStartupLocation="CenterScreen"  ResizeMode="CanMinimize" Icon="vpngreen.ico" ShowActivated="False">
+        WindowStartupLocation="CenterScreen"  ResizeMode="CanMinimize" Icon="vpngreen.ico" >
 
     <!--<Window.Resources>
-
-         
  
         
     </Window.Resources>-->
@@ -43,8 +40,6 @@
             <!--// App Close Button Style Template //-->
 
             <ImageBrush x:Key="CloseBtn_MouseOver" ImageSource="Assets/closeBtn_MouseOver.png"/>
-
-
 
             <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
 
@@ -242,7 +237,7 @@
                         </Grid.ColumnDefinitions>
                         <!--materialDesign:HintAssist.Hint="Search Location"  materialDesign:HintAssist.IsFloating="True"-->
 
-                        <TextBox   Tag="Search Here" Style="{StaticResource MyWaterMarkStyle}"   Padding="-12,0,0,0"  TextWrapping="Wrap"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                        <TextBox    Tag="Search Here" Style="{StaticResource MyWaterMarkStyle}"   Padding="-12,0,0,0"  TextWrapping="Wrap"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
  VerticalAlignment="Top"  Width="352"   HorizontalAlignment="Left" x:Name="SearchTermTextBox" Grid.ColumnSpan="2" TextChanged="SearchTermTextBox_TextChanged" TextDecorations="{x:Null}" Height="42" VerticalScrollBarVisibility="Auto">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -315,9 +310,9 @@
 
                                                             <StackPanel>
                                                                 <WrapPanel>
-                                                                    <Ellipse Margin="4,0"  Height="20" Width="25">
+                                                                    <Ellipse Stroke="Black" StrokeThickness="0.3"  Margin="4,0"  Height="20" Width="25">
                                                                         <Ellipse.Fill>
-                                                                            <ImageBrush ImageSource="{Binding Flag}"  />
+                                                                            <ImageBrush  ImageSource="{Binding Flag}"  />
                                                                         </Ellipse.Fill>
                                                                     </Ellipse>
 
@@ -435,7 +430,7 @@
                                                         <DataTemplate>
 
                                                             <StackPanel>
-                                                                <Ellipse Margin="4,0"  Height="20" Width="25">
+                                                                <Ellipse Stroke="Black" StrokeThickness="0.3"  Margin="4,0"  Height="20" Width="25">
                                                                     <Ellipse.Fill>
                                                                         <ImageBrush ImageSource="{Binding Flag}"  />
                                                                     </Ellipse.Fill>
@@ -545,7 +540,7 @@
                                                         <DataTemplate>
 
                                                             <StackPanel>
-                                                                <Ellipse Margin="4,0"  Height="20" Width="25">
+                                                                <Ellipse Margin="4,0" Stroke="Black" StrokeThickness="0.3"   Height="20" Width="25">
                                                                     <Ellipse.Fill>
                                                                         <ImageBrush ImageSource="{Binding Flag}"  />
                                                                     </Ellipse.Fill>
@@ -661,7 +656,7 @@
                                                         <StackPanel>
 
 
-                                                            <Ellipse Margin="4,8" Height="20" Width="25">
+                                                            <Ellipse Stroke="Black" StrokeThickness="0.3" Margin="4,8" Height="20" Width="25">
                                                                 <Ellipse.Fill>
                                                                     <ImageBrush ImageSource="{Binding Flag}"  />
                                                                 </Ellipse.Fill>
@@ -847,11 +842,13 @@
 
                 </Canvas>
 
-                <Grid Margin="0,0,0,91">
-                    <Grid.Background>
-                        <ImageBrush Opacity="0.3" x:Name="bgGridMap"  ImageSource="map-img.png" Stretch="None">
+
+                <Grid Margin="8,0,0,91">
+                    <Image Panel.ZIndex="-1" Source="/Map@2x.png" Margin="34,-55,20,171"></Image>
+                    <!--<Grid.Background>
+                        <ImageBrush x:Name="bgGridMap"  ImageSource="/Map@2x.png" Stretch="Uniform">
                         </ImageBrush>
-                    </Grid.Background>
+                    </Grid.Background>-->
 
                     <TextBlock Name="txtConnect" Text="Not Connected" TextAlignment="Left" Margin="179,23,122,426"></TextBlock>
 
@@ -912,7 +909,7 @@
 
                         </TextBlock>
 
-                        <Ellipse Height="Auto" Margin="41,10,231,33">
+                        <Ellipse   Stroke="Black" StrokeThickness="0.3" Height="Auto" Margin="41,10,231,33">
                             <Ellipse.Fill>
                                 <ImageBrush x:Name="countryFlagImage" />
                             </Ellipse.Fill>
@@ -922,13 +919,14 @@
                     </Grid>
 
                     <Grid Visibility="Visible"  x:Name="gridLocationBlur"  HorizontalAlignment="Center" Height="62" Margin="98,208,24,0" Width="296" VerticalAlignment="Top">
-                        <TextBlock TextWrapping="WrapWithOverflow" Name="currentLocationBlur"  FontFamily="Poppins" FontSize="16" HorizontalAlignment="Left"  VerticalAlignment="Center"   Margin="80,10,-26,-22" Width="242" Height="74" >
+                        <TextBlock TextWrapping="WrapWithOverflow" Name="currentLocationBlur"  FontFamily="Poppins" FontSize="16" HorizontalAlignment="Left"  VerticalAlignment="Top"   Margin="80,10,0,0" Width="216" Height="52" >
                             <TextBlock.Effect>
                                 <BlurEffect KernelType="Gaussian" Radius="5" />
                             </TextBlock.Effect>
                         </TextBlock>
 
-                        <Ellipse Height="Auto" Margin="41,10,231,33">
+                        <Ellipse Stroke="Black" StrokeThickness="0.3" Height="Auto" Margin="41,10,231,33">
+
                             <Ellipse.Fill>
                                 <ImageBrush x:Name="countryFlagImageBlur" />
                             </Ellipse.Fill>
@@ -939,14 +937,18 @@
 
                     </Grid>
                     <TextBlock Name="labelIpAddress"  HorizontalAlignment="Left" Margin="158,284,0,0" VerticalAlignment="Top" Width="144"/>
+                    <TextBlock x:Name="timer" TextAlignment="Center" HorizontalAlignment="Left" Margin="82,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Foreground="Black"/>
 
                 </Grid>
 
-                <Grid Background="#FFFDFDFD" Margin="4,475,3,10">
+                <Grid  Margin="4,475,3,-11">
 
-
-                    <TextBlock Name="newsText" TextWrapping="WrapWithOverflow"  TextDecorations="None"  Text="Want to Verify you're connect to OysterVPN Secure  Network?" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,4,0,29" Height="43"  FontFamily="{StaticResource PoppinsRegular}"  FontSize="12" TextAlignment="Center" Width="396" />
-                    <TextBlock  TextWrapping="WrapWithOverflow"  Margin="10,53,18,0"  VerticalAlignment="Top"   Width="346" Foreground="#FF005CB3" Cursor="Hand" FontFamily="{StaticResource PoppinsRegular}" Height="35" HorizontalAlignment="Center" TextDecorations="Underline" TextAlignment="Center">
+                    <Grid.Background>
+                        <ImageBrush x:Name="bgGridMap"  ImageSource="/bg@2x.png" >
+                        </ImageBrush>
+                    </Grid.Background>
+                    <TextBlock Name="newsText" TextWrapping="WrapWithOverflow"  TextDecorations="None"  Text="Want to Verify you're connect to OysterVPN Secure  Network?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,4,0,0" Height="43"  FontFamily="{StaticResource PoppinsRegular}"  FontSize="12" TextAlignment="Center" Width="396" />
+                    <TextBlock  TextWrapping="WrapWithOverflow"  Margin="28,53,0,0"  VerticalAlignment="Top"   Width="346" Foreground="#FF005CB3" Cursor="Hand" FontFamily="{StaticResource PoppinsRegular}" Height="35" HorizontalAlignment="Left" TextDecorations="Underline" TextAlignment="Center">
                    <Hyperlink NavigateUri="https://support.oystervpn.co/"  Name="newsLink" Click="newsLink_Click">
                         <TextBlock Name="newsLinkText">support.oystervpn.co</TextBlock>
                   </Hyperlink>
@@ -986,13 +988,9 @@
                         Width="40"
                         BorderThickness="0"
                         Style="{StaticResource Close_btn}" Click="CloseBtn_Click">
-
                     <Button.Background>
-
                         <ImageBrush ImageSource="Assets/closeBtn_default.png"/>
-
                     </Button.Background>
-
                 </Button>
 
             </Grid>-->
@@ -1044,8 +1042,14 @@
                         <!--</TextBlock>-->
 
                         <!--// Toggle Button //-->
+                        <!--<Border BorderThickness="0.1,0.1,0.1,0.1"
+        BorderBrush="#cccc"
+                                CornerRadius="40,40,40,40"
+        VerticalAlignment="Top" Height="59">-->
+                        <Image Name="UserAvatar"   Height="36" Width="36" Margin="11,0,10,26"/>
+                        <!--</Border>-->
 
-                        <ToggleButton  x:Name="Tg_Btn"
+                        <ToggleButton Visibility="Collapsed"  x:Name="Tg_Btn"
                                       Grid.Column="0"
                                       VerticalAlignment="Center"
                                       HorizontalAlignment="Left"
@@ -1062,7 +1066,7 @@
 
                             <!--// Toggle Button - Checked, Unchecked events //-->
 
-                            <ToggleButton.Triggers>
+                            <!--<ToggleButton.Triggers>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
 
@@ -1107,7 +1111,7 @@
 
                                 </EventTrigger>
 
-                            </ToggleButton.Triggers>
+                            </ToggleButton.Triggers>-->
 
 
                         </ToggleButton>

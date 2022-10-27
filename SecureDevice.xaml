@@ -13,9 +13,7 @@
    
         FontFamily="Poppins" Visibility="Visible" ResizeMode="CanMinimize">
 
-    <Window.Background>
-        <ImageBrush ImageSource="assets/white_background.jpg"      />
-    </Window.Background>
+
 
     <Window.Resources>
         <Style x:Key="MyButton" TargetType="Button">
@@ -41,110 +39,14 @@
 
     </Window.Resources>
 
-    <Grid>
-
-        <Image  RenderOptions.BitmapScalingMode="HighQuality"  Margin="58,72,57,356"  Source="Group 7363.png"/>
-
-        <TextBlock TextWrapping="WrapWithOverflow"   Text="Your subscription includes access to all OysterVPN apps!" Margin="30,245,17,293" Height="48" Width="313" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <Grid >
 
 
-        <Grid>
-            <Image  Source="Group 7367.png" Margin="0,286,198,246" HorizontalAlignment="Right" Width="135"/>
-            <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Row="0"
-                UseLayoutRounding="True"
-       Height="18"
-       VerticalAlignment="Top"
-       Margin="39,300,285,0" Source="Group 7368.png" />
+        <Image  RenderOptions.BitmapScalingMode="HighQuality"  Margin="28,136,44,292"  Source="/Secure2x.png"/>
 
-            <Label Content="Desktop" Margin="0,295,172,252" HorizontalAlignment="Right" Width="116"/>
+        <TextBlock FontSize="15" TextWrapping="WrapWithOverflow" TextAlignment="Center"   Text="Your subscription includes access to all OysterVPN apps!" Margin="32,323,0,0" Height="55" Width="311" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-
-
-        </Grid>
-
-
-
-        <Grid Margin="147,0,-147,0">
-            <Image  Source="Group 7367.png" Margin="0,286,198,246" HorizontalAlignment="Right" Width="135"/>
-            <Image RenderOptions.BitmapScalingMode="HighQuality" Grid.Row="0"
-                UseLayoutRounding="True"
-                Height="18"
-                VerticalAlignment="Top"
-                Margin="39,300,285,0" Source="Group 7369.png" />
-
-            <Label Content="Mobile" Margin="0,295,172,252" HorizontalAlignment="Right" Width="116"/>
-
-
-
-        </Grid>
-        <Grid Margin="0,50,0,-50">
-            <Image  Source="Group 7367.png" Margin="0,286,198,246"  HorizontalAlignment="Right" Width="135"/>
-            <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Row="0"
-                UseLayoutRounding="True"
-                Height="18"
-                VerticalAlignment="Top"
-                Margin="39,300,285,0" Source="Group 7372.png" />
-
-            <Label Content="TV" Margin="0,295,172,252" HorizontalAlignment="Right" Width="116"/>
-
-
-
-        </Grid>
-      
-        <Grid Margin="147,0,-147,0">
-            <Image  Source="Group 7367.png" Margin="0,286,198,246" HorizontalAlignment="Right" Width="135"/>
-            <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Row="0"
-                UseLayoutRounding="True"
-                Height="18"
-                VerticalAlignment="Top"
-                Margin="39,300,285,0" Source="Group 7369.png" />
-
-            <Label Content="Mobile" Margin="0,295,172,252" HorizontalAlignment="Right" Width="116"/>
-
-
-
-        </Grid>
-        <Grid Margin="147,50,-147,-50">
-            <Image  Source="Group 7367.png" Margin="0,286,198,246" HorizontalAlignment="Right" Width="135"/>
-            <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Row="0"
-                UseLayoutRounding="True"
-                Height="14"
-                VerticalAlignment="Top"
-                Margin="44,304,293,0" Source="Group 7370.png" />
-
-            <Label Content="Gaming" Margin="0,295,172,252" HorizontalAlignment="Right" Width="116"/>
-
-
-
-        </Grid>
-        <Grid Margin="0,100,0,-100">
-            <Image  Source="Group 7367.png" Margin="0,286,198,246" HorizontalAlignment="Right" Width="135"/>
-            <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Row="0"
-                UseLayoutRounding="True"
-                Height="18"
-                VerticalAlignment="Top"
-                Margin="39,300,285,0" Source="Group 7373.png" />
-
-            <Label Content="Routers" Margin="0,295,172,252" HorizontalAlignment="Right" Width="116"/>
-
-
-
-        </Grid>
-        <Grid>
-            <Image  Source="Group 7367.png" Margin="0,286,198,246" HorizontalAlignment="Right" Width="135"/>
-            <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Row="0"
-                UseLayoutRounding="True"
-                Height="18"
-                VerticalAlignment="Top"
-                Margin="39,300,285,0" Source="Group 7374.png" />
-
-            <Label Content="Browsers" Margin="0,295,172,252" HorizontalAlignment="Right" Width="116"/>
-
-
-
-        </Grid>
-
-        <Button  TabIndex="2"  Style="{StaticResource MyButton}" x:Name="btnSetup" Content="Get More Apps" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="330" Height="34" Background="#FF0065C4" Foreground="White" FontFamily="Poppins" Margin="0,450,0,0" Click="btnSetup_Click"  >
+        <Button  TabIndex="2"  Style="{StaticResource MyButton}" x:Name="btnSetup" Content="Get More Apps" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="330" Height="34" Background="#FF009A62" Foreground="White" FontFamily="Poppins" Margin="0,482,0,0" Click="btnSetup_Click"  >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="8"/>

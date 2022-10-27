@@ -57,6 +57,9 @@ namespace OysterVPN
                     case "UDP":
                         protocol_udp.IsChecked = true;
                         break;
+                    case "WIREGUARD":
+                        protocol_wireguard.IsChecked = true;
+                        break;
                 }
 
                 userEmail.Content = Settings.getEmail();
@@ -86,8 +89,6 @@ namespace OysterVPN
 
         }
 
-
-       
 
         public void protocol_automatic_Checked(object sender, RoutedEventArgs e)
         { 
@@ -151,6 +152,17 @@ namespace OysterVPN
             protocol_automatic.IsChecked = false;
             protocol_l2tp.IsChecked = false;
             Settings.setProtocol("PPTP");
+        }
+
+        private void protocol_wireguard_Checked(object sender, RoutedEventArgs e)
+        {
+            protocol_ikev.IsChecked = false;
+            protocol_udp.IsChecked = false;
+            protocol_tcp.IsChecked = false;
+            protocol_automatic.IsChecked = false;
+            protocol_l2tp.IsChecked = false;
+            protocol_pptp.IsChecked = false;
+            Settings.setProtocol("WIREGUARD");
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
@@ -233,5 +245,7 @@ namespace OysterVPN
        //     System.Windows.Forms.MessageBox.Show("Test");
 
         }
+
+      
     }
 }

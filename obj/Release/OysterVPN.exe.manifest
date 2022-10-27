@@ -326,7 +326,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qjpzYm8Hi0KqSYxtNIFkH9a8qd1OahDLmzliv+/URjg=</dsig:DigestValue>
+        <dsig:DigestValue>RxLpi9Xh3iVOcKnUE33ARyuYhkOLrQQ7cFMPrBrdlZg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -355,14 +355,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OysterVPN.exe" size="7173624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OysterVPN.exe" size="7934456">
       <assemblyIdentity name="OysterVPN" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DHVLjoCQT5PvIIsl0cnfbekfB8E2NZHcknDd7IefMu4=</dsig:DigestValue>
+        <dsig:DigestValue>o0ay+/6DYyk+Y6cu64Yjcbaz+DlVU/wWi97h+JBh7bo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

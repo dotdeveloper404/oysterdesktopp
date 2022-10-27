@@ -27,3 +27,13 @@ C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.cspr
 C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.csproj.CopyComplete
 C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.dll
 C:\New Design\New Design\Oyster\NativeMessaging\obj\Release\NativeMessaging.pdb
+C:\Oyster\oysterdesktopp\NativeMessaging\bin\Release\NativeMessaging.xml
+C:\Oyster\oysterdesktopp\NativeMessaging\bin\Release\NativeMessaging.dll
+C:\Oyster\oysterdesktopp\NativeMessaging\bin\Release\NativeMessaging.pdb
+C:\Oyster\oysterdesktopp\NativeMessaging\bin\Release\Newtonsoft.Json.dll
+C:\Oyster\oysterdesktopp\NativeMessaging\bin\Release\Newtonsoft.Json.xml
+C:\Oyster\oysterdesktopp\NativeMessaging\obj\Release\NativeMessaging.csproj.AssemblyReference.cache
+C:\Oyster\oysterdesktopp\NativeMessaging\obj\Release\NativeMessaging.csproj.CoreCompileInputs.cache
+C:\Oyster\oysterdesktopp\NativeMessaging\obj\Release\NativeMessaging.csproj.CopyComplete
+C:\Oyster\oysterdesktopp\NativeMessaging\obj\Release\NativeMessaging.dll
+C:\Oyster\oysterdesktopp\NativeMessaging\obj\Release\NativeMessaging.pdb
